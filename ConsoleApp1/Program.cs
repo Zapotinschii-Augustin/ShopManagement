@@ -13,7 +13,7 @@ namespace Shop
         static void Main(string[] args)
         {
             string shopName = ConfigurationManager.AppSettings.Get("shop_name");
-            Console.WriteLine($"denumirea magazinului: {shopName}");
+            Console.WriteLine(shopName);
             Console.ReadKey();
         }
     }
