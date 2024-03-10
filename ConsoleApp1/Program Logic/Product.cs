@@ -49,8 +49,8 @@ namespace ConsoleApp1.Program_Logic
                 price = value;
             } 
         }
-        public string Description { get; set; }
-        public ECategory Category { get; set; }
+        public string Description { get { return description; } set { description = value; } }
+        public ECategory Category { get { return category; } set { category = value; } }
         public Product(string name, int price, string description, ECategory category)
         {
             this.name = name.Trim();
