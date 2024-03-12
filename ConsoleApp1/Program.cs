@@ -6,8 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp1.Program_Logic;
+using System.Reflection;
+using System.IO;
 
 using CShop = ConsoleApp1.Program_Logic.Shop;
+using System.Xml.Linq;
+using ConsoleApp1.avgDB;
 
 namespace Shop
 {
@@ -16,14 +20,18 @@ namespace Shop
         static void Main(string[] args)
         {
             //string shopName = ConfigurationManager.AppSettings.Get("shop_name");
+            //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             CShop shop = new CShop();
-            shop.addProduct("pasta",10,"so good",ECategory.food);
-            shop.addProduct("papito", 100, "so smart", ECategory.pet_supplies);
-            shop.addProduct("pizza", 40, "40 cm", ECategory.food);
 
-            CShop.logAllProducts(shop.searchProducts("pi"));
+            CShop.LogAllProducts(shop.Products);
 
             Console.ReadKey();
         }
     }
 }
+
+
+//ConsoleApp1.avgDB.ProductsDB db = new ConsoleApp1.avgDB.ProductsDB("db");
+//string str = typeof(ConsoleApp1.avgDB.ProductsDB).GetMethod("ProductToString", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(db, new object[] { product }).ToString();
+
+

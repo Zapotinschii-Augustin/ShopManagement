@@ -5,96 +5,94 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using AvgDB = ConsoleApp1.avgDB.AvgDB;
+using ConsoleApp1.avgDB;
+using System.IO;
 
 namespace ConsoleApp1.Program_Logic
 {
     internal class Shop
     {
-        public Shop() { 
-            this.products = new List<Product>();
+        public Shop() {
             this.name = ConfigurationManager.AppSettings.Get("shop_name");
+            this.db = new ProductsDB(DBNAME);
+            products = db.getProducts();
         }
 
         private readonly List<Product> products;
         private readonly string name;
+        private ProductsDB db;
+        public static readonly string DBNAME = "products";
 
-        public List<Product> Products { 
-            get { return products; }
-        } 
+        public List<Product> Products { get { return products; } }
+
         public string Name { get { return name; } }
 
-        public void addProduct(string name, int price, string description, ECategory category)
+        public void AddProduct(string name, string price, string description, string category)
         {
-            if (!productIsValid(name, price, category)) return; 
+            if (!IsProductValid(name, price, category)) return;
+            Product productToAdd = new Product(name, price, description, category);
 
-            products.Add(new Product(name, price, description, category));
+            products.Add(productToAdd);
+            db.addProduct(productToAdd);
         }
 
-        public void removeProduct(int index)
+        public void RemoveProduct(Product product)
         {
+            int index = FindProductIndex(product);
             //Show are you sure you want to remove product form;
+            db.removeProduct(product);
             products.RemoveAt(index);
         }
 
-        public void changeProduct(ActiveProduct product)
+        public void ChangeProduct(Product product)
         {
-            products[product.Index] = product.product;
-        }
-        public List<Product> searchProducts(string _name)
-        {
-            string name = _name.Trim();
-            if(name == null || name == "") return products;
-            List<Product> searchedProducts = new List<Product>();
-
-            for(int product = 0; product < products.Count; product++)
-            {
-                if (products[product].Name.Contains(name))
-                {
-                    searchedProducts.Add(products[product]);
-                }
-            }
-
-            return searchedProducts;
+            int index = FindProductIndex(product);
+            products[index] = product;
         }
 
-
-
-        static public void logAllProducts(List<Product> products) { 
-            for(int product = 0; product < products.Count; product++)
+        static public void LogAllProducts(List<Product> products) {
+            for (int product = 0; product < products.Count; product++)
             {
                 Console.Write($"name: {products[product].Name} | price: {products[product].Price} | category: {products[product].Category}\ndescription: {products[product].Description}\n");
             }
         }
-        private bool productIsValid(string name, int price, ECategory category)
+        private bool IsProductValid(string name, string price, string category)
         {
-            ProductIsNotValid productIsNotValid = Product.IsValidProduct(name, price, category);
-            switch(productIsNotValid)
+            EProductIsNotValid productIsNotValid = Product.ProductIsNotValid(name, price, category);
+            switch (productIsNotValid)
             {
-                case ProductIsNotValid.FALSE: 
+                case EProductIsNotValid.FALSE:
                     return true;
-                case ProductIsNotValid.price:
-                {
+                case EProductIsNotValid.price:
+                    {
                         //Show form with error;
                         return false;
-                }
-                case ProductIsNotValid.name:
-                {
+                    }
+                case EProductIsNotValid.name:
+                    {
                         //Show form with error;
                         return false;
-                }
-                case ProductIsNotValid.category:
-                {
+                    }
+                case EProductIsNotValid.category:
+                    {
                         //Show form with error;
                         return false;
-                }
+                    }
                 default:
-                {
+                    {
                         //Show undefined error
                         return false;
-                }
+                    }
             }
         }
-        
+        private int FindProductIndex(Product product) {
+            for(int index = 0; index < products.Count; index++)
+            {
+                if (products[index].ID == product.ID) return index;
+            }
+            return -1;
+        }
 
     }
 }

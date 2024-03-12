@@ -1,25 +1,15 @@
-﻿using System;
+﻿using ConsoleApp1.avgDB;
+using System;
 using System.Collections.Generic;
+using System.Deployment.Internal;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1.Program_Logic
 {
-    enum ECategory
-    {
-        NULL = 0,
-        food,
-        alcohol,
-        clothing,
-        games,
-        pet_supplies,
-        health,
-
-
-        ELSE
-    }
-    enum ProductIsNotValid
+    enum EProductIsNotValid
     {
         FALSE = 0,
         name,
@@ -29,55 +19,54 @@ namespace ConsoleApp1.Program_Logic
 
     internal class Product
     {
-        private string name;
-        private int price;
-        private string description;
-        private ECategory category; 
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
+        public string ID { get; set; }
 
 
-        public string Name {
-            get { return name; }
-            set {
-                if (value.Trim() == "") value = "undefined";
-                name = value;
-            } 
-        }
-        public int Price {
-            get { return price; } 
-            set { 
-                if(value < 0) value = 0;
-                price = value;
-            } 
-        }
-        public string Description { get { return description; } set { description = value; } }
-        public ECategory Category { get { return category; } set { category = value; } }
-        public Product(string name, int price, string description, ECategory category)
+        public Product() { }
+        public Product(string name, string price, string description, string category, string id = null)
         {
-            this.name = name.Trim();
-            this.price = price;
-            this.description = description;
-            this.category = category;
+            this.Name = name.Trim();
+            this.Price = price;
+            this.Description = description;
+            this.Category = category;
+            this.ID = (id == null ? (Convert.ToUInt32(AvgDB.getLastId(Shop.DBNAME)) + 1).ToString() : id);
         }
-        public static ProductIsNotValid IsValidProduct(string name, int price, ECategory category)
+
+        public void UpdateValue(string propertyName, string value)
         {
-            if (name == null || name.Trim() == "") return ProductIsNotValid.name; //"Name is undefined"
-            if (price < 0) return ProductIsNotValid.price; //"Price must be greater than 0"
-            if (category == ECategory.NULL) return ProductIsNotValid.category; //"Category not selected"
-            return ProductIsNotValid.FALSE;
+            PropertyInfo property = this.GetType().GetProperty(propertyName);
+     
+            if (property == null)
+            {
+                throw new Exception($"Property '{propertyName}' does not exist in type {GetType().Name}.");
+            }
+
+            property.SetValue(this, value);
         }
-    }
 
-    internal class ActiveProduct
-    {
-        private int index;
-        public Product product;
-
-        public int Index { get { return index;} }
-
-        public ActiveProduct(int index, Product product)
+        public string GetValue(string propertyName)
         {
-            this.index = index;
-            this.product = product;
+            PropertyInfo property = GetType().GetProperty(propertyName);
+
+            if (property == null)
+            {
+                throw new Exception($"Property '{propertyName}' does not exist in type {GetType().Name}.");
+            }
+
+            object value = property.GetValue(this);
+            return value.ToString();
+        }
+
+        public static EProductIsNotValid ProductIsNotValid(string name, string price, string category)
+        {
+            if (name == null || name.Trim() == "") return EProductIsNotValid.name; //"Name is undefined"
+            if (Convert.ToInt32(price) < 0) return EProductIsNotValid.price; //"Price must be greater than 0"
+            if (category == String.Empty) return EProductIsNotValid.category; //"Category not selected"
+            return EProductIsNotValid.FALSE;
         }
     }
 }
