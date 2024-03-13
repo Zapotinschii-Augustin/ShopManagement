@@ -9,6 +9,8 @@ using AvgDB = ConsoleApp1.avgDB.AvgDB;
 using ConsoleApp1.avgDB;
 using System.IO;
 
+//remove array producs, not necesary, getProducts will get products directly from db;
+//when update, add, remove products from UI, UI array will change;
 namespace ConsoleApp1.Program_Logic
 {
     internal class Shop
@@ -49,6 +51,7 @@ namespace ConsoleApp1.Program_Logic
         {
             int index = FindProductIndex(product);
             products[index] = product;
+            db.UpdateProduct(product);
         }
 
         static public void LogAllProducts(List<Product> products) {
