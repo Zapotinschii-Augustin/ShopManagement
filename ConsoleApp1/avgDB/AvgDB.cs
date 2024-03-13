@@ -37,6 +37,29 @@ namespace ConsoleApp1.avgDB
             file.Write(row + "\n");
             file.Close();
         }
+        protected void updateRow(string updatedRow)
+        {
+            try
+            {
+                string[] rows = File.ReadAllLines(DBPath);
+                List<string> newRows = new List<string>();
+
+                foreach (string row in rows)
+                {
+                    if (updatedRow.Split(DELIM)[0] != row.Split(DELIM)[0])
+                    {
+                        newRows.Add(row);
+                    }
+                }
+                newRows.Add(updatedRow);
+
+                File.WriteAllLines(DBPath, newRows);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
         protected string[] getAllRows()
         {
             return File.ReadAllLines(DBPath);
@@ -85,15 +108,24 @@ namespace ConsoleApp1.avgDB
         {
             addRow(ProductToString(product));   
         }
-        public List<Product> getProducts()
+        public void UpdateProduct(Product product)
+        {
+            updateRow(ProductToString(product));
+        }
+        public List<Product> getProducts(string name = "")
         {
             //collect rows from db and make Products
             List<Product> productsToReturn = new List<Product>();
             string[] products = getAllRows();
+            Product productToAdd;
 
             foreach (string product in products)
             {
-                productsToReturn.Add(StringToProduct(product));
+                productToAdd = StringToProduct(product);
+                if(productToAdd.Name.Contains(name))
+                {
+                    productsToReturn.Add(productToAdd);
+                }
             }
 
             return productsToReturn;

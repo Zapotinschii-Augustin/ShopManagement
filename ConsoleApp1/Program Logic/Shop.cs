@@ -9,6 +9,7 @@ using AvgDB = ConsoleApp1.avgDB.AvgDB;
 using ConsoleApp1.avgDB;
 using System.IO;
 
+//You can use list of products on your UI, no need for aditional array;
 namespace ConsoleApp1.Program_Logic
 {
     internal class Shop
@@ -19,22 +20,24 @@ namespace ConsoleApp1.Program_Logic
             products = db.getProducts();
         }
 
-        private readonly List<Product> products;
+        private List<Product> products;
         private readonly string name;
         private ProductsDB db;
         public static readonly string DBNAME = "products";
 
         public List<Product> Products { get { return products; } }
-
         public string Name { get { return name; } }
 
-        public void AddProduct(string name, string price, string description, string category)
+        public EProductIsNotValid AddProduct(string name, string price, string description, string category)
         {
-            if (!IsProductValid(name, price, category)) return;
+            if (Product.ProductIsNotValid(name, price, category) != EProductIsNotValid.FALSE)
+                return Product.ProductIsNotValid(name, price, category);
+            
             Product productToAdd = new Product(name, price, description, category);
 
             products.Add(productToAdd);
             db.addProduct(productToAdd);
+            return EProductIsNotValid.FALSE;
         }
 
         public void RemoveProduct(Product product)
@@ -49,43 +52,20 @@ namespace ConsoleApp1.Program_Logic
         {
             int index = FindProductIndex(product);
             products[index] = product;
+            db.UpdateProduct(product);
         }
 
+        public void searchProducts(string name)
+        {
+            products = db.getProducts(name);
+        }
         static public void LogAllProducts(List<Product> products) {
             for (int product = 0; product < products.Count; product++)
             {
                 Console.Write($"name: {products[product].Name} | price: {products[product].Price} | category: {products[product].Category}\ndescription: {products[product].Description}\n");
             }
         }
-        private bool IsProductValid(string name, string price, string category)
-        {
-            EProductIsNotValid productIsNotValid = Product.ProductIsNotValid(name, price, category);
-            switch (productIsNotValid)
-            {
-                case EProductIsNotValid.FALSE:
-                    return true;
-                case EProductIsNotValid.price:
-                    {
-                        //Show form with error;
-                        return false;
-                    }
-                case EProductIsNotValid.name:
-                    {
-                        //Show form with error;
-                        return false;
-                    }
-                case EProductIsNotValid.category:
-                    {
-                        //Show form with error;
-                        return false;
-                    }
-                default:
-                    {
-                        //Show undefined error
-                        return false;
-                    }
-            }
-        }
+       
         private int FindProductIndex(Product product) {
             for(int index = 0; index < products.Count; index++)
             {
