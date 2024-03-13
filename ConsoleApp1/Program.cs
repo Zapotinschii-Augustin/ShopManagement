@@ -23,6 +23,7 @@ namespace Shop
             //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             CShop shop = new CShop();
 
+            shop.searchProducts("");
             CShop.LogAllProducts(shop.Products);
 
             Console.ReadKey();
