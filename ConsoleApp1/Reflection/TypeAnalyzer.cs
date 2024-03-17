@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Reflection
 {
-    internal class TypeAnalyzer
+    public class TypeAnalyzer
     {
         public void UpdateValue(string propertyName, string value)
         {
@@ -23,7 +23,7 @@ namespace ConsoleApp1.Reflection
 
         public string GetValue(string propertyName)
         {
-            PropertyInfo property = GetType().GetProperty(propertyName);
+            PropertyInfo property = this.GetType().GetProperty(propertyName);
 
             if (property == null)
             {

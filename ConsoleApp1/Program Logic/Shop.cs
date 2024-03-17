@@ -12,7 +12,7 @@ using System.IO;
 //You can use list of products on your UI, no need for aditional array;
 namespace ConsoleApp1.Program_Logic
 {
-    internal class Shop
+    public class Shop
     {
         public Shop() {
             this.name = ConfigurationManager.AppSettings.Get("shop_name");
