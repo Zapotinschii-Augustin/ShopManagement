@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Program_Logic
 {
-    enum EProductIsNotValid
+    public enum EProductIsNotValid
     {
         FALSE = 0,
         name,
@@ -18,7 +18,7 @@ namespace ConsoleApp1.Program_Logic
         category
     }
 
-    internal class Product : TypeAnalyzer
+    public class Product : TypeAnalyzer
     {
         public string Name { get; set; }
         public string Price { get; set; }

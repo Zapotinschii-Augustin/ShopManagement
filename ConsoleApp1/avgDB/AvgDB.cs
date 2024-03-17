@@ -10,7 +10,7 @@ using System.IO;
 namespace ConsoleApp1.avgDB
 {
     //note that avgDB cant work without ID
-    internal class AvgDB
+    public class AvgDB
     {
         public AvgDB(string DBName)
         {
@@ -99,7 +99,7 @@ namespace ConsoleApp1.avgDB
 
 
     //first column of DBs build on AvgDB must be ID column;
-    internal class ProductsDB : AvgDB
+    public class ProductsDB : AvgDB
     {
         public ProductsDB(string DBName) : base(DBName) { }
         
