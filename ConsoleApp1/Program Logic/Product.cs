@@ -1,4 +1,5 @@
 ﻿using ConsoleApp1.avgDB;
+using ConsoleApp1.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Deployment.Internal;
@@ -17,7 +18,7 @@ namespace ConsoleApp1.Program_Logic
         category
     }
 
-    internal class Product
+    internal class Product : TypeAnalyzer
     {
         public string Name { get; set; }
         public string Price { get; set; }
@@ -34,31 +35,6 @@ namespace ConsoleApp1.Program_Logic
             this.Description = description;
             this.Category = category;
             this.ID = (id == null ? (Convert.ToUInt32(AvgDB.getLastId(Shop.DBNAME)) + 1).ToString() : id);
-        }
-
-        public void UpdateValue(string propertyName, string value)
-        {
-            PropertyInfo property = this.GetType().GetProperty(propertyName);
-     
-            if (property == null)
-            {
-                throw new Exception($"Property '{propertyName}' does not exist in type {GetType().Name}.");
-            }
-
-            property.SetValue(this, value);
-        }
-
-        public string GetValue(string propertyName)
-        {
-            PropertyInfo property = GetType().GetProperty(propertyName);
-
-            if (property == null)
-            {
-                throw new Exception($"Property '{propertyName}' does not exist in type {GetType().Name}.");
-            }
-
-            object value = property.GetValue(this);
-            return value.ToString();
         }
 
         public static EProductIsNotValid ProductIsNotValid(string name, string price, string category)
