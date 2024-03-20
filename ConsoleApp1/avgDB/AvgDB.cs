@@ -37,6 +37,7 @@ namespace ConsoleApp1.avgDB
             file.Write(row + "\n");
             file.Close();
         }
+
         protected void updateRow(string updatedRow)
         {
             try
@@ -60,10 +61,12 @@ namespace ConsoleApp1.avgDB
                 Console.WriteLine(e.Message);
             }
         }
+
         protected string[] getAllRows()
         {
             return File.ReadAllLines(DBPath);
         }
+
         protected void deleteById(string id)
         {
             try
@@ -87,13 +90,13 @@ namespace ConsoleApp1.avgDB
             }
         }
         
-        public static string getLastId(string DBName)
+        public static string getNextId(string DBName)
         {
             string[] rows = File.ReadAllLines($"{DBName}.txt");
 
             if (rows.Length == 0) return "0";
 
-            return rows[rows.Length - 1].Split(DELIM)[0];
+            return (Convert.ToInt32(rows[rows.Length - 1].Split(DELIM)[0]) + 1).ToString();
         }
     }
 
@@ -104,14 +107,18 @@ namespace ConsoleApp1.avgDB
         public ProductsDB(string DBName) : base(DBName) { }
         
         private List<string> DBColumns = new List<string>() {"ID", "Name", "Price", "Description", "Category"};
+
+
         public void addProduct(Product product)
         {
             addRow(ProductToString(product));   
         }
+
         public void UpdateProduct(Product product)
         {
             updateRow(ProductToString(product));
         }
+
         public List<Product> getProducts(string name = "")
         {
             //collect rows from db and make Products
@@ -130,10 +137,12 @@ namespace ConsoleApp1.avgDB
 
             return productsToReturn;
         }
+
         public void removeProduct(Product product)
         {
             deleteById(product.ID);
         }
+
         private string ProductToString(Product product) {
             string str = String.Empty;
             foreach(string column in DBColumns) 
@@ -145,6 +154,7 @@ namespace ConsoleApp1.avgDB
 
             return str;
         }
+
         private Product StringToProduct(string str)
         {
             Product product = new Product();

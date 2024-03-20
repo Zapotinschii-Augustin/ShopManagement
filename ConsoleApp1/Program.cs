@@ -24,8 +24,8 @@ namespace Shop
             CShop shop = new CShop();
 
             shop.searchProducts("");
-            CShop.LogAllProducts(shop.Products);
 
+            Console.WriteLine(shop.Products[0].Name);
             Console.ReadKey();
         }
     }

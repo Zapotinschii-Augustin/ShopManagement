@@ -23,6 +23,7 @@ namespace ConsoleApp1.Program_Logic
         private List<Product> products;
         private readonly string name;
         private ProductsDB db;
+        
         public static readonly string DBNAME = "products";
 
         public List<Product> Products { get { return products; } }
@@ -30,10 +31,11 @@ namespace ConsoleApp1.Program_Logic
 
         public EProductIsNotValid AddProduct(string name, string price, string description, string category)
         {
-            if (Product.ProductIsNotValid(name, price, category) != EProductIsNotValid.FALSE)
-                return Product.ProductIsNotValid(name, price, category);
+            EProductIsNotValid productIsNotValid = Product.ProductIsNotValid(name, price, category);
+            if (productIsNotValid != EProductIsNotValid.FALSE)
+                return productIsNotValid;
             
-            Product productToAdd = new Product(name, price, description, category);
+            Product productToAdd = new Product(name, price, description, category, AvgDB.getNextId(DBNAME));
 
             products.Add(productToAdd);
             db.addProduct(productToAdd);
@@ -43,7 +45,6 @@ namespace ConsoleApp1.Program_Logic
         public void RemoveProduct(Product product)
         {
             int index = FindProductIndex(product);
-            //Show are you sure you want to remove product form;
             db.removeProduct(product);
             products.RemoveAt(index);
         }
@@ -59,13 +60,7 @@ namespace ConsoleApp1.Program_Logic
         {
             products = db.getProducts(name);
         }
-        static public void LogAllProducts(List<Product> products) {
-            for (int product = 0; product < products.Count; product++)
-            {
-                Console.Write($"name: {products[product].Name} | price: {products[product].Price} | category: {products[product].Category}\ndescription: {products[product].Description}\n");
-            }
-        }
-       
+
         private int FindProductIndex(Product product) {
             for(int index = 0; index < products.Count; index++)
             {

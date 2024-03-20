@@ -34,7 +34,7 @@ namespace ConsoleApp1.Program_Logic
             this.Price = price;
             this.Description = description;
             this.Category = category;
-            this.ID = (id == null ? (Convert.ToUInt32(AvgDB.getLastId(Shop.DBNAME)) + 1).ToString() : id);
+            this.ID = id;
         }
 
         public static EProductIsNotValid ProductIsNotValid(string name, string price, string category)
