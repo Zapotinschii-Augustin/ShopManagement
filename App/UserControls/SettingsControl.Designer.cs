@@ -34,19 +34,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(366, 292);
+            this.label1.Location = new System.Drawing.Point(365, 292);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Settings";
             // 
-            // Settings
+            // SettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Name = "Settings";
-            this.Size = new System.Drawing.Size(777, 600);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "SettingsControl";
+            this.Size = new System.Drawing.Size(1210, 775);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsControl_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

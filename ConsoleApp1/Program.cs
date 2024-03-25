@@ -22,10 +22,20 @@ namespace Shop
             //string shopName = ConfigurationManager.AppSettings.Get("shop_name");
             //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             CShop shop = new CShop();
+            AvgDB db = new AvgDB("products");
+            db.Clear();
+
+            shop.AddProduct("Pepsi", "4", "2L", "drink");
+            shop.AddProduct("Bread", "5", "", "food");
+            shop.Products[0].Name = "Cola";
+            shop.ChangeProduct(shop.Products[0]);
 
             shop.searchProducts("");
 
             Console.WriteLine(shop.Products[0].Name);
+            Console.WriteLine(shop.Products[0].Price);
+            Console.WriteLine(shop.Products[1].Name, shop.Products[1].Description);
+            Console.WriteLine(shop.Products[1].Price);
             Console.ReadKey();
         }
     }

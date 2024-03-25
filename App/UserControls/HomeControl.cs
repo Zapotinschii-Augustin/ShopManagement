@@ -16,5 +16,14 @@ namespace App.UserControls
         {
             InitializeComponent();
         }
+
+        private void HomeControl_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
+                             Color.Black, 0, ButtonBorderStyle.Inset,
+                             Color.Black, 1, ButtonBorderStyle.Inset,
+                             Color.Black, 0, ButtonBorderStyle.Inset,
+                             Color.Black, 0, ButtonBorderStyle.Inset);
+        }
     }
 }

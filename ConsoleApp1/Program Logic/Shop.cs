@@ -28,6 +28,7 @@ namespace ConsoleApp1.Program_Logic
 
         public List<Product> Products { get { return products; } }
         public string Name { get { return name; } }
+        public string Currency { get; set; } = "$";
 
         public EProductIsNotValid AddProduct(string name, string price, string description, string category)
         {

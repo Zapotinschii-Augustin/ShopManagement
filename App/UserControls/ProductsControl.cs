@@ -15,6 +15,17 @@ namespace App.UserControls
         public ProductsControl()
         {
             InitializeComponent();
+            inputSearch.Placeholder = "Search products";
+            inputSearch.PlaceholderColor = ColorTranslator.FromHtml("#4F4B4A");
+        }
+
+        private void ProductsControl_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
+                             Color.Black, 0, ButtonBorderStyle.Inset,
+                             Color.Black, 1, ButtonBorderStyle.Inset,
+                             Color.Black, 0, ButtonBorderStyle.Inset,
+                             Color.Black, 0, ButtonBorderStyle.Inset);
         }
     }
 }

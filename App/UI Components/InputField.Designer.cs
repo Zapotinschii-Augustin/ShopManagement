@@ -1,6 +1,6 @@
-﻿namespace App.UserControls
+﻿namespace App.UI_Components
 {
-    partial class HomeControl
+    partial class InputField
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.Input = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // Input
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(367, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Home";
+            this.Input.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Input.Location = new System.Drawing.Point(0, 0);
+            this.Input.Name = "Input";
+            this.Input.Size = new System.Drawing.Size(108, 27);
+            this.Input.TabIndex = 0;
+            this.Input.Enter += new System.EventHandler(this.Input_Enter);
+            this.Input.Leave += new System.EventHandler(this.Input_Leave);
             // 
-            // HomeControl
+            // InputField
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "HomeControl";
-            this.Size = new System.Drawing.Size(1210, 775);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.HomeControl_Paint);
+            this.Controls.Add(this.Input);
+            this.Name = "InputField";
+            this.Load += new System.EventHandler(this.InputField_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,6 +55,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Input;
     }
 }

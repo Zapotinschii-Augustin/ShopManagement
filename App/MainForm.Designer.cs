@@ -30,103 +30,158 @@ namespace App
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.components = new System.ComponentModel.Container();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.SettingsBtn = new System.Windows.Forms.Button();
-            this.ProductsBtn = new System.Windows.Forms.Button();
             this.HomeBtn = new System.Windows.Forms.Button();
+            this.panelHeader = new System.Windows.Forms.Label();
+            this.ProductsBtn = new System.Windows.Forms.Button();
             this.settingsControl = new App.UserControls.SettingsControl();
-            this.productsControl = new App.UserControls.ProductsControl();
             this.homeControl = new App.UserControls.HomeControl();
-            this.panel1.SuspendLayout();
+            this.productsControl = new App.UserControls.ProductsControl();
+            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // mainPanel
             // 
-            this.panel1.Controls.Add(this.SettingsBtn);
-            this.panel1.Controls.Add(this.ProductsBtn);
-            this.panel1.Controls.Add(this.HomeBtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 603);
-            this.panel1.TabIndex = 0;
+            this.mainPanel.Controls.Add(this.SettingsBtn);
+            this.mainPanel.Controls.Add(this.HomeBtn);
+            this.mainPanel.Controls.Add(this.panelHeader);
+            this.mainPanel.Controls.Add(this.ProductsBtn);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mainPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(267, 846);
+            this.mainPanel.TabIndex = 0;
             // 
             // SettingsBtn
             // 
-            this.SettingsBtn.Location = new System.Drawing.Point(3, 58);
+            this.SettingsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SettingsBtn.FlatAppearance.BorderSize = 0;
+            this.SettingsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SettingsBtn.Location = new System.Drawing.Point(0, 149);
+            this.SettingsBtn.Margin = new System.Windows.Forms.Padding(0);
             this.SettingsBtn.Name = "SettingsBtn";
-            this.SettingsBtn.Size = new System.Drawing.Size(200, 23);
-            this.SettingsBtn.TabIndex = 2;
+            this.SettingsBtn.Size = new System.Drawing.Size(267, 37);
+            this.SettingsBtn.TabIndex = 5;
             this.SettingsBtn.Text = "Settings";
-            this.SettingsBtn.UseVisualStyleBackColor = true;
+            this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SettingsBtn.UseVisualStyleBackColor = false;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
-            // 
-            // ProductsBtn
-            // 
-            this.ProductsBtn.Location = new System.Drawing.Point(0, 29);
-            this.ProductsBtn.Name = "ProductsBtn";
-            this.ProductsBtn.Size = new System.Drawing.Size(200, 23);
-            this.ProductsBtn.TabIndex = 1;
-            this.ProductsBtn.Text = "Products";
-            this.ProductsBtn.UseVisualStyleBackColor = true;
-            this.ProductsBtn.Click += new System.EventHandler(this.ProductsBtn_Click);
             // 
             // HomeBtn
             // 
-            this.HomeBtn.Location = new System.Drawing.Point(0, 0);
+            this.HomeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.HomeBtn.FlatAppearance.BorderSize = 0;
+            this.HomeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.HomeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HomeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.HomeBtn.Location = new System.Drawing.Point(0, 75);
+            this.HomeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(200, 23);
-            this.HomeBtn.TabIndex = 0;
+            this.HomeBtn.Size = new System.Drawing.Size(267, 37);
+            this.HomeBtn.TabIndex = 4;
             this.HomeBtn.Text = "Home";
-            this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HomeBtn.UseVisualStyleBackColor = false;
             this.HomeBtn.Click += new System.EventHandler(this.HomeBtn_Click);
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.AutoSize = true;
+            this.panelHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelHeader.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelHeader.Location = new System.Drawing.Point(4, 22);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(216, 38);
+            this.panelHeader.TabIndex = 3;
+            this.panelHeader.Text = "Management";
+            // 
+            // ProductsBtn
+            // 
+            this.ProductsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ProductsBtn.FlatAppearance.BorderSize = 0;
+            this.ProductsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.ProductsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ProductsBtn.Location = new System.Drawing.Point(0, 112);
+            this.ProductsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.ProductsBtn.Name = "ProductsBtn";
+            this.ProductsBtn.Size = new System.Drawing.Size(267, 37);
+            this.ProductsBtn.TabIndex = 1;
+            this.ProductsBtn.Text = "Products";
+            this.ProductsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProductsBtn.UseVisualStyleBackColor = false;
+            this.ProductsBtn.Click += new System.EventHandler(this.ProductsBtn_Click);
             // 
             // settingsControl
             // 
-            this.settingsControl.Location = new System.Drawing.Point(206, 0);
+            this.settingsControl.BackColor = System.Drawing.Color.Transparent;
+            this.settingsControl.Location = new System.Drawing.Point(270, 71);
+            this.settingsControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingsControl.Name = "settingsControl";
-            this.settingsControl.Size = new System.Drawing.Size(777, 600);
-            this.settingsControl.TabIndex = 3;
-            // 
-            // productsControl
-            // 
-            this.productsControl.Location = new System.Drawing.Point(206, 0);
-            this.productsControl.Name = "productsControl";
-            this.productsControl.Size = new System.Drawing.Size(777, 600);
-            this.productsControl.TabIndex = 2;
+            this.settingsControl.Size = new System.Drawing.Size(1210, 775);
+            this.settingsControl.TabIndex = 7;
             // 
             // homeControl
             // 
-            this.homeControl.Location = new System.Drawing.Point(206, 0);
+            this.homeControl.Location = new System.Drawing.Point(270, 71);
+            this.homeControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.homeControl.Name = "homeControl";
-            this.homeControl.Size = new System.Drawing.Size(777, 600);
-            this.homeControl.TabIndex = 1;
+            this.homeControl.Size = new System.Drawing.Size(1210, 775);
+            this.homeControl.TabIndex = 6;
+            // 
+            // productsControl
+            // 
+            this.productsControl.Location = new System.Drawing.Point(270, 71);
+            this.productsControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.productsControl.Name = "productsControl";
+            this.productsControl.Size = new System.Drawing.Size(1210, 775);
+            this.productsControl.TabIndex = 5;
+            // 
+            // mainFormBindingSource
+            // 
+            this.mainFormBindingSource.DataSource = typeof(App.MainForm);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 603);
+            this.ClientSize = new System.Drawing.Size(1483, 846);
             this.Controls.Add(this.settingsControl);
-            this.Controls.Add(this.productsControl);
             this.Controls.Add(this.homeControl);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.productsControl);
+            this.Controls.Add(this.mainPanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
-            this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
+            this.Text = "Management";
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button SettingsBtn;
-        private System.Windows.Forms.Button ProductsBtn;
-        private System.Windows.Forms.Button HomeBtn;
-        private UserControls.HomeControl homeControl;
+        private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.BindingSource mainFormBindingSource;
         private UserControls.ProductsControl productsControl;
+        private UserControls.HomeControl homeControl;
         private UserControls.SettingsControl settingsControl;
+        private System.Windows.Forms.Label panelHeader;
+        private System.Windows.Forms.Button SettingsBtn;
+        private System.Windows.Forms.Button HomeBtn;
+        private System.Windows.Forms.Button ProductsBtn;
     }
 }
 
