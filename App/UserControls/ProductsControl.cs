@@ -12,7 +12,7 @@ namespace App.UserControls
 {
     public partial class ProductsControl : UserControl
     {
-
+        public MainForm MainForm { get; set; }
         public ProductsControl()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace App.UserControls
 
         private void btnCreateProduct_Click(object sender, EventArgs e)
         {
-
+            this.MainForm.ElevateUserControl("createProject");
         }
     }
 }

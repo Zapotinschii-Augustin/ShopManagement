@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using App.Variables;
+using CShop = ConsoleApp1.Program_Logic.Shop;
 
 namespace App
 {
@@ -22,6 +23,7 @@ namespace App
     {
         private readonly string[] controls = { "products", "createProject", "settings" };
         EActiveControl activeControl;
+        public static CShop shop = new CShop();
 
         public MainForm()
         {
@@ -29,11 +31,12 @@ namespace App
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             createProjectControl.BringToFront();
+            productsControl.MainForm = this;
             activeControl = EActiveControl.products;
             ResetBtns();
         }
 
-        private void ElevateUserControl(string userControlName)
+        public void ElevateUserControl(string userControlName)
         {
             Type userControl = typeof(UserControl);
             MethodInfo method = userControl.GetMethod("Hide");
