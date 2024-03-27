@@ -8,19 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App.UserControls
+namespace App.UI_Components
 {
-    public partial class ProductsControl : UserControl
+    public partial class ProductsList : UserControl
     {
-        public ProductsControl()
+        public ProductsList()
         {
             InitializeComponent();
-            inputSearch.Placeholder = "Search products";
-            inputSearch.PlaceholderColor = ColorTranslator.FromHtml("#4F4B4A");
-            inputSearch.inputWidth = 199;
         }
 
-        private void ProductsControl_Paint(object sender, PaintEventArgs e)
+        private void ProductsList_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
                              Color.Black, 0, ButtonBorderStyle.Inset,

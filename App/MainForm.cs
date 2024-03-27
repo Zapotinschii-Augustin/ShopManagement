@@ -27,8 +27,6 @@ namespace App
         public MainForm()
         {
             InitializeComponent();
-            mainPanel.BackColor = Colors.Beta;
-            this.BackColor = Colors.Alpha;
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             HomeBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;

@@ -60,6 +60,18 @@
     <Compile Include="UI Components\InputField.Designer.cs">
       <DependentUpon>InputField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI Components\ProductLineCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI Components\ProductLineCard.Designer.cs">
+      <DependentUpon>ProductLineCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI Components\ProductsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI Components\ProductsList.Designer.cs">
+      <DependentUpon>ProductsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HomeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="UI Components\InputField.resx">
       <DependentUpon>InputField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI Components\ProductsList.resx">
+      <DependentUpon>ProductsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HomeControl.resx">
       <DependentUpon>HomeControl.cs</DependentUpon>
