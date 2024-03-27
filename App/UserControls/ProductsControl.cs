@@ -12,6 +12,7 @@ namespace App.UserControls
 {
     public partial class ProductsControl : UserControl
     {
+
         public ProductsControl()
         {
             InitializeComponent();
@@ -27,6 +28,11 @@ namespace App.UserControls
                              Color.Black, 1, ButtonBorderStyle.Inset,
                              Color.Black, 0, ButtonBorderStyle.Inset,
                              Color.Black, 0, ButtonBorderStyle.Inset);
+        }
+
+        private void btnCreateProduct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

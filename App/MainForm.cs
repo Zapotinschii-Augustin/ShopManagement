@@ -15,23 +15,21 @@ namespace App
     enum EActiveControl
     {
         products = 0,
-        home,
         settings
     }
     //source control: mainPanel (mainPanel.ResetBindings())
     public partial class MainForm : Form
     {
-        private readonly string[] controls = { "products", "home", "settings" };
+        private readonly string[] controls = { "products", "createProject", "settings" };
         EActiveControl activeControl;
 
         public MainForm()
         {
             InitializeComponent();
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
-            HomeBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
-            homeControl.BringToFront();
-            activeControl = EActiveControl.home;
+            createProjectControl.BringToFront();
+            activeControl = EActiveControl.products;
             ResetBtns();
         }
 
@@ -55,14 +53,10 @@ namespace App
         }
         private void ResetBtns()
         {
-            HomeBtn.BackColor = Color.Transparent;
             ProductsBtn.BackColor = Color.Transparent;
             SettingsBtn.BackColor = Color.Transparent;
             switch(activeControl)
             {
-                case EActiveControl.home:
-                    HomeBtn.BackColor = Colors.activeBtn;
-                    return;
                 case EActiveControl.products:
                     ProductsBtn.BackColor = Colors.activeBtn;
                     return;
@@ -70,13 +64,6 @@ namespace App
                     SettingsBtn.BackColor = Colors.activeBtn;
                     return;
             }
-        }
-
-        private void HomeBtn_Click(object sender, EventArgs e)
-        {
-            ElevateUserControl("home");
-            activeControl = EActiveControl.home;
-            ResetBtns();
         }
 
         private void ProductsBtn_Click(object sender, EventArgs e)

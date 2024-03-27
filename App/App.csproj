@@ -72,11 +72,11 @@
     <Compile Include="UI Components\ProductsList.Designer.cs">
       <DependentUpon>ProductsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HomeControl.cs">
+    <Compile Include="UserControls\createProjectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HomeControl.Designer.cs">
-      <DependentUpon>HomeControl.cs</DependentUpon>
+    <Compile Include="UserControls\createProjectControl.Designer.cs">
+      <DependentUpon>createProjectControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProductsControl.cs">
       <SubType>UserControl</SubType>
@@ -109,8 +109,8 @@
     <EmbeddedResource Include="UI Components\ProductsList.resx">
       <DependentUpon>ProductsList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HomeControl.resx">
-      <DependentUpon>HomeControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\createProjectControl.resx">
+      <DependentUpon>createProjectControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductsControl.resx">
       <DependentUpon>ProductsControl.cs</DependentUpon>

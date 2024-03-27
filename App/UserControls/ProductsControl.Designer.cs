@@ -41,7 +41,7 @@
             this.inputSearch.Name = "inputSearch";
             this.inputSearch.Placeholder = null;
             this.inputSearch.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.inputSearch.Size = new System.Drawing.Size(199, 23);
+            this.inputSearch.Size = new System.Drawing.Size(250, 23);
             this.inputSearch.TabIndex = 2;
             // 
             // btnCreateProduct
@@ -55,6 +55,7 @@
             this.btnCreateProduct.TabIndex = 3;
             this.btnCreateProduct.Text = "Create Product";
             this.btnCreateProduct.UseVisualStyleBackColor = false;
+            this.btnCreateProduct.Click += new System.EventHandler(this.btnCreateProduct_Click);
             // 
             // productsList
             // 
