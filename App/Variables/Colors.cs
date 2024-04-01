@@ -21,5 +21,9 @@ namespace App.Variables
         public static readonly Color hoverBeta = Color.FromArgb(30,83, 212);
 
         public static readonly Color activeBtn = Color.FromArgb(30, 83, 212);
+
+        public static readonly Color productCardLineBG = Color.FromArgb(244, 249, 255);
+
+        public static readonly Color mainBorder = Color.FromArgb(223, 227, 231);
     }
 }

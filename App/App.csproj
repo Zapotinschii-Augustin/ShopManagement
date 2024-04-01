@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcceptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcceptForm.Designer.cs">
+      <DependentUpon>AcceptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables\Colors.cs" />
+    <EmbeddedResource Include="AcceptForm.resx">
+      <DependentUpon>AcceptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +114,9 @@
     </Compile>
     <EmbeddedResource Include="UI Components\InputField.resx">
       <DependentUpon>InputField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI Components\ProductLineCard.resx">
+      <DependentUpon>ProductLineCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI Components\ProductsList.resx">
       <DependentUpon>ProductsList.cs</DependentUpon>
