@@ -84,6 +84,12 @@
     <Compile Include="UserControls\createProjectControl.Designer.cs">
       <DependentUpon>createProjectControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\EditProductControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\EditProductControl.Designer.cs">
+      <DependentUpon>EditProductControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ProductsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\createProjectControl.resx">
       <DependentUpon>createProjectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\EditProductControl.resx">
+      <DependentUpon>EditProductControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProductsControl.resx">
       <DependentUpon>ProductsControl.cs</DependentUpon>

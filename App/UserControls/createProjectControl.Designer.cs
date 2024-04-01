@@ -138,6 +138,7 @@
             this.createProductBtn.TabIndex = 8;
             this.createProductBtn.Text = "Create Product";
             this.createProductBtn.UseVisualStyleBackColor = true;
+            this.createProductBtn.Click += new System.EventHandler(this.createProductBtn_Click);
             // 
             // headerLabel
             // 

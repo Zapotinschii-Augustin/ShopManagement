@@ -21,7 +21,7 @@ namespace App
     //source control: mainPanel (mainPanel.ResetBindings())
     public partial class MainForm : Form
     {
-        private readonly string[] controls = { "products", "createProject", "settings" };
+        private readonly string[] controls = { "products", "createProject", "settings", "editProduct" };
         EActiveControl activeControl;
         public static CShop shop = new CShop();
 
@@ -81,6 +81,11 @@ namespace App
             ElevateUserControl("settings");
             activeControl = EActiveControl.settings;
             ResetBtns();
+        }
+
+        public void changeEditProductControlIndex(string index)
+        {
+            editProductControl.Index = index;
         }
     }
 }

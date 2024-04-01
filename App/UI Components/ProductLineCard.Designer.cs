@@ -64,9 +64,9 @@
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.Location = new System.Drawing.Point(48, 10);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(75, 16);
+            this.descriptionLabel.Size = new System.Drawing.Size(38, 16);
             this.descriptionLabel.TabIndex = 2;
-            this.descriptionLabel.Text = "Description";
+            this.descriptionLabel.Text = "show";
             // 
             // categoryLabel
             // 
@@ -99,6 +99,7 @@
             this.editBtn.TabIndex = 5;
             this.editBtn.Text = "edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // deleteBtn
             // 

@@ -14,12 +14,28 @@ namespace App.UI_Components
 {
     public partial class ProductLineCard : UserControl
     {
+        public MainForm MainForm { get; set; }
+        private ToolTip ToolTip1 = new ToolTip();
         public Color _BackgroundColor { get; set; } = Colors.productCardLineBG;
         public string ProductName { get; set; }
         public string Price { get; set; }
         public string Description { get; set; }
+        public string DescriptionLabelText { get; set; } = "Description";
         public string Category { get; set; }
         public string Index { get; set; }
+        public bool HideButtons { 
+            set {
+                if(value)
+                {
+                    this.deleteBtn.Hide();
+                    this.editBtn.Hide();
+                } else
+                {
+                    this.deleteBtn.Show();
+                    this.editBtn.Show();
+                }
+            } 
+        }
 
         public ProductLineCard()
         {
@@ -38,11 +54,12 @@ namespace App.UI_Components
         public void RefreshSelf()
         {
             this.BackColor = _BackgroundColor;
-            ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(descriptionPanel, Description);
             this.nameLabel.Text = ProductName;
             this.priceLabel.Text = Price;
             this.categoryLabel.Text = Category;
+            this.descriptionLabel.Text = DescriptionLabelText;
+            ToolTip1.SetToolTip(descriptionPanel, Description);
+            ToolTip1.SetToolTip(descriptionLabel, Description);
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)
@@ -55,6 +72,12 @@ namespace App.UI_Components
                 //Delete product
                 return;
             }
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+                this.MainForm.changeEditProductControlIndex("0");
+                this.MainForm.ElevateUserControl("editProduct");
         }
     }
 }

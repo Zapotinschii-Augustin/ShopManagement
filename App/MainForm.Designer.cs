@@ -39,6 +39,7 @@ namespace App
             this.createProjectControl = new App.UserControls.createProjectControl();
             this.productsControl = new App.UserControls.ProductsControl();
             this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editProductControl = new App.UserControls.EditProductControl();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +52,7 @@ namespace App
             this.mainPanel.Controls.Add(this.ProductsBtn);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(200, 687);
             this.mainPanel.TabIndex = 0;
@@ -107,7 +108,7 @@ namespace App
             // 
             this.settingsControl.BackColor = System.Drawing.Color.Transparent;
             this.settingsControl.Location = new System.Drawing.Point(202, 58);
-            this.settingsControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.settingsControl.Margin = new System.Windows.Forms.Padding(2);
             this.settingsControl.Name = "settingsControl";
             this.settingsControl.Size = new System.Drawing.Size(908, 630);
             this.settingsControl.TabIndex = 7;
@@ -115,7 +116,7 @@ namespace App
             // createProjectControl
             // 
             this.createProjectControl.Location = new System.Drawing.Point(202, 58);
-            this.createProjectControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createProjectControl.Margin = new System.Windows.Forms.Padding(2);
             this.createProjectControl.Name = "createProjectControl";
             this.createProjectControl.Size = new System.Drawing.Size(908, 630);
             this.createProjectControl.TabIndex = 6;
@@ -124,7 +125,7 @@ namespace App
             // 
             this.productsControl.Location = new System.Drawing.Point(202, 58);
             this.productsControl.MainForm = null;
-            this.productsControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productsControl.Margin = new System.Windows.Forms.Padding(2);
             this.productsControl.Name = "productsControl";
             this.productsControl.Size = new System.Drawing.Size(908, 630);
             this.productsControl.TabIndex = 5;
@@ -133,17 +134,26 @@ namespace App
             // 
             this.mainFormBindingSource.DataSource = typeof(App.MainForm);
             // 
+            // editProductControl
+            // 
+            this.editProductControl.Index = string.Empty;
+            this.editProductControl.Location = new System.Drawing.Point(202, 58);
+            this.editProductControl.Name = "editProductControl";
+            this.editProductControl.Size = new System.Drawing.Size(908, 630);
+            this.editProductControl.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 687);
+            this.Controls.Add(this.editProductControl);
             this.Controls.Add(this.settingsControl);
             this.Controls.Add(this.createProjectControl);
             this.Controls.Add(this.productsControl);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Management";
@@ -164,6 +174,7 @@ namespace App
         private System.Windows.Forms.Label panelHeader;
         private System.Windows.Forms.Button SettingsBtn;
         private System.Windows.Forms.Button ProductsBtn;
+        private UserControls.EditProductControl editProductControl;
     }
 }
 

@@ -10,24 +10,38 @@ using System.Windows.Forms;
 
 namespace App.UserControls
 {
-    public partial class createProjectControl : UserControl
+    public partial class EditProductControl : UserControl
     {
-        public createProjectControl()
+        private string index;
+        public string Index { 
+            get {
+                return index;
+            }
+            set { 
+                this.index = value;
+                //change inputs
+            }
+        }
+        public EditProductControl()
         {
             InitializeComponent();
         }
-        private void createProjectControl_Paint(object sender, PaintEventArgs e)
+
+        private void editProductBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        private void EditProductControl_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle,
                                          Color.Black, 0, ButtonBorderStyle.Inset,
                                          Color.Black, 1, ButtonBorderStyle.Inset,
                                          Color.Black, 0, ButtonBorderStyle.Inset,
                                          Color.Black, 0, ButtonBorderStyle.Inset);
-        }
-
-        private void createProductBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
