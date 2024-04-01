@@ -14,21 +14,21 @@ namespace ConsoleApp1.Program_Logic
 {
     public class Shop
     {
-        public Shop() {
-            this.name = ConfigurationManager.AppSettings.Get("shop_name");
+        public Shop(string name, string currency = "$") {
+            this.Name = name;//ConfigurationManager.AppSettings.Get("shop_name");
+            this.Currency = currency;
             this.db = new ProductsDB(DBNAME);
             products = db.getProducts();
         }
 
         private List<Product> products;
-        private readonly string name;
         private ProductsDB db;
         
         public static readonly string DBNAME = "products";
 
         public List<Product> Products { get { return products; } }
-        public string Name { get { return name; } }
-        public string Currency { get; set; } = "$";
+        public string Name { get; set; }
+        public string Currency { get; set; }
 
         public EProductIsNotValid AddProduct(string name, string price, string description, string category)
         {

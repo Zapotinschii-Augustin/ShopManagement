@@ -64,7 +64,7 @@ namespace App.UserControls
 
                 productCards[product].ProductName = "Name";
                 productCards[product].Description = "Description";
-                productCards[product].Price = "Price";
+                productCards[product].Price = "Price" + MainForm.shop.Currency;
                 productCards[product].Category = "Category";
 
                 productCards[product].Index = "index";

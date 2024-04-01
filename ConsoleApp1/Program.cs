@@ -21,7 +21,7 @@ namespace Shop
         {
             //string shopName = ConfigurationManager.AppSettings.Get("shop_name");
             //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
-            CShop shop = new CShop();
+            CShop shop = new CShop("Profi");
             AvgDB db = new AvgDB("products");
             db.Clear();
 

@@ -35,18 +35,22 @@
             // 
             this.Input.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Input.Location = new System.Drawing.Point(0, 0);
+            this.Input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Input.Name = "Input";
-            this.Input.Size = new System.Drawing.Size(108, 27);
+            this.Input.Size = new System.Drawing.Size(82, 23);
             this.Input.TabIndex = 0;
             this.Input.Enter += new System.EventHandler(this.Input_Enter);
+            this.Input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Input_KeyDown);
             this.Input.Leave += new System.EventHandler(this.Input_Leave);
             // 
             // InputField
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Input);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InputField";
+            this.Size = new System.Drawing.Size(112, 122);
             this.Load += new System.EventHandler(this.InputField_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

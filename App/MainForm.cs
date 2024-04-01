@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,15 +24,15 @@ namespace App
     {
         private readonly string[] controls = { "products", "createProject", "settings", "editProduct" };
         EActiveControl activeControl;
-        public static CShop shop = new CShop();
+        public static CShop shop = new CShop( ConfigurationManager.AppSettings.Get("shop_name"), ConfigurationManager.AppSettings.Get("currency") );
 
         public MainForm()
         {
             InitializeComponent();
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
-            createProjectControl.BringToFront();
             productsControl.MainForm = this;
+            productsControl.BringToFront();
             activeControl = EActiveControl.products;
             ResetBtns();
         }

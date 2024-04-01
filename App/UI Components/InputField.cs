@@ -12,6 +12,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace App.UI_Components
 {
+    //Callbaks
+    public delegate void OnKeyDownCallBack(object sender, KeyEventArgs e);
     public partial class InputField : UserControl
     {
         private string placeholder;
@@ -24,13 +26,21 @@ namespace App.UI_Components
         public Color PlaceholderColor { get; set; }
         public int inputWidth { get; set; } = 250;
         private string inputText = "";
-        public string InputText { get { return inputText; } }
+        public string InputText { 
+            get { return inputText; }
+            set { 
+                inputText = value;
+                Input.Text = value;
+            }
+        }
         public InputField()
         {
             InitializeComponent();
             Input.ForeColor = PlaceholderColor;
             Input.Text = Placeholder;
         }
+        public OnKeyDownCallBack OnKeyDownCallback { get; set; } 
+
 
         private void Input_Leave(object sender, EventArgs e)
         {
@@ -53,6 +63,14 @@ namespace App.UI_Components
             Input.Width = inputWidth;
             this.Width = inputWidth;
             this.Height = Input.Height;
+        }
+
+        private void Input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (OnKeyDownCallback != null)
+            {
+                OnKeyDownCallback(sender, e);
+            }
         }
     }
 }
