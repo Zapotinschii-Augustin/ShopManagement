@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AvgDB = ConsoleApp1.avgDB.AvgDB;
 using ConsoleApp1.avgDB;
-using System.IO;
 
 //You can use list of products on your UI, no need for aditional array;
 namespace ConsoleApp1.Program_Logic
@@ -15,7 +14,7 @@ namespace ConsoleApp1.Program_Logic
     public class Shop
     {
         public Shop(string name, string currency = "$") {
-            this.Name = name;//ConfigurationManager.AppSettings.Get("shop_name");
+            this.Name = name;
             this.Currency = currency;
             this.db = new ProductsDB(DBNAME);
             products = db.getProducts();
@@ -52,9 +51,8 @@ namespace ConsoleApp1.Program_Logic
 
         public void ChangeProduct(Product product)
         {
-            int index = FindProductIndex(product);
-            products[index] = product;
             db.UpdateProduct(product);
+            db.getProducts();
         }
 
         public void searchProducts(string name)

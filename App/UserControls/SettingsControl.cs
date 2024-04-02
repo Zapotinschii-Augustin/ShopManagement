@@ -13,6 +13,7 @@ namespace App.UserControls
 {
     public partial class SettingsControl : UserControl
     {
+        public MainForm MainForm { get; set; }
         public SettingsControl()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace App.UserControls
 
                 // Force a reload of a changed section.
                 ConfigurationManager.RefreshSection("appSettings");
-                currencyInput.Focus();
+                MainForm.shop.Currency = shopNameInput.InputText;
             }
         }
 
@@ -61,6 +62,8 @@ namespace App.UserControls
 
                 // Force a reload of a changed section.
                 ConfigurationManager.RefreshSection("appSettings");
+                MainForm.shop.Currency = currencyInput.InputText;
+                MainForm.ReRenderProductsList();
             }
         }
 

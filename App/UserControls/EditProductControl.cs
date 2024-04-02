@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Program_Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,25 @@ namespace App.UserControls
 {
     public partial class EditProductControl : UserControl
     {
+        public MainForm MainForm { get; set; }
         private string index;
-        public string Index { 
-            get {
+        public string Index
+        {
+            get
+            {
                 return index;
             }
-            set { 
+            set
+            {
                 this.index = value;
-                //change inputs
+                
+                if(index != string.Empty)
+                {
+                  nameField.InputText = MainForm.shop.Products[Int32.Parse(index)].Name;
+                  priceField.InputText = MainForm.shop.Products[Int32.Parse(index)].Price;
+                  descriptionField.InputText = MainForm.shop.Products[Int32.Parse(index)].Description;
+                  categoryField.InputText = MainForm.shop.Products[Int32.Parse(index)].Category;
+                }
             }
         }
         public EditProductControl()
@@ -29,11 +41,18 @@ namespace App.UserControls
 
         private void editProductBtn_Click(object sender, EventArgs e)
         {
+            EProductIsNotValid invalidField = Product.ProductIsNotValid(nameField.InputText, priceField.InputText, categoryField.InputText);
+            if(invalidField == EProductIsNotValid.FALSE)
+            {
+                MainForm.shop.Products[Int32.Parse(index)].Name = nameField.InputText;
+                MainForm.shop.Products[Int32.Parse(index)].Price = priceField.InputText;
+                MainForm.shop.Products[Int32.Parse(index)].Description = descriptionField.InputText;
+                MainForm.shop.Products[Int32.Parse(index)].Category = categoryField.InputText;
 
+                MainForm.shop.ChangeProduct(MainForm.shop.Products[Int32.Parse(Index)]);
+            }
+            showInvalidField(invalidField);
         }
-
-
-
 
         private void EditProductControl_Paint(object sender, PaintEventArgs e)
         {
@@ -42,6 +61,26 @@ namespace App.UserControls
                                          Color.Black, 1, ButtonBorderStyle.Inset,
                                          Color.Black, 0, ButtonBorderStyle.Inset,
                                          Color.Black, 0, ButtonBorderStyle.Inset);
+        }
+
+        private void showInvalidField(EProductIsNotValid invalidField)
+        {
+            switch (invalidField)
+            {
+                case EProductIsNotValid.FALSE:
+                    this.MainForm.ReRenderProductsList();
+                    this.MainForm.ElevateUserControl("products");
+                    return;
+                case EProductIsNotValid.name:
+
+                    return;
+                case EProductIsNotValid.price:
+
+                    return;
+                case EProductIsNotValid.category:
+
+                    return;
+            }
         }
     }
 }

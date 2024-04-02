@@ -24,7 +24,7 @@ namespace App
     {
         private readonly string[] controls = { "products", "createProject", "settings", "editProduct" };
         EActiveControl activeControl;
-        public static CShop shop = new CShop( ConfigurationManager.AppSettings.Get("shop_name"), ConfigurationManager.AppSettings.Get("currency") );
+        public static CShop shop = new CShop(ConfigurationManager.AppSettings.Get("shop_name"), ConfigurationManager.AppSettings.Get("currency"));
 
         public MainForm()
         {
@@ -32,6 +32,9 @@ namespace App
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             productsControl.MainForm = this;
+            createProjectControl.MainForm = this;
+            editProductControl.MainForm = this;
+            settingsControl.MainForm = this;
             productsControl.BringToFront();
             activeControl = EActiveControl.products;
             ResetBtns();
@@ -87,6 +90,10 @@ namespace App
         public void changeEditProductControlIndex(string index)
         {
             editProductControl.Index = index;
+        }
+        public void ReRenderProductsList()
+        {
+            productsControl.RenderList();
         }
     }
 }

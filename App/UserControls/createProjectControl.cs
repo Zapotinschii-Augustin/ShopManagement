@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Program_Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace App.UserControls
 {
     public partial class createProjectControl : UserControl
     {
+        public MainForm MainForm { get; set; }
         public createProjectControl()
         {
             InitializeComponent();
@@ -27,7 +29,27 @@ namespace App.UserControls
 
         private void createProductBtn_Click(object sender, EventArgs e)
         {
+            EProductIsNotValid invalidField = MainForm.shop.AddProduct(nameField.InputText, priceField.InputText, descriptionField.InputText, categoryField.InputText);
+            showInvalidField(invalidField);
+        }
+        private void showInvalidField(EProductIsNotValid invalidField)
+        {
+            switch(invalidField)
+            {
+                case EProductIsNotValid.FALSE:
+                    this.MainForm.ReRenderProductsList();
+                    this.MainForm.ElevateUserControl("products");
+                    return;
+                case EProductIsNotValid.name:
 
+                    return;
+                case EProductIsNotValid.price:
+
+                    return;
+                case EProductIsNotValid.category:
+
+                    return;
+            }
         }
     }
 }

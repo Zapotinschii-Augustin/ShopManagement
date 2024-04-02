@@ -67,6 +67,7 @@ namespace App.UI_Components
 
         private void Input_KeyDown(object sender, KeyEventArgs e)
         {
+            InputText = Input.Text;
             if (OnKeyDownCallback != null)
             {
                 OnKeyDownCallback(sender, e);

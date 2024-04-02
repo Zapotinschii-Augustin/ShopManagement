@@ -35,13 +35,15 @@
             // 
             // inputSearch
             // 
+            this.inputSearch.InputText = "";
             this.inputSearch.inputWidth = 250;
-            this.inputSearch.Location = new System.Drawing.Point(678, 25);
-            this.inputSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.inputSearch.Location = new System.Drawing.Point(904, 31);
+            this.inputSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.inputSearch.Name = "inputSearch";
+            this.inputSearch.OnKeyDownCallback = null;
             this.inputSearch.Placeholder = null;
             this.inputSearch.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(180)))), ((int)(((byte)(191)))));
-            this.inputSearch.Size = new System.Drawing.Size(250, 23);
+            this.inputSearch.Size = new System.Drawing.Size(333, 33);
             this.inputSearch.TabIndex = 2;
             // 
             // btnCreateProduct
@@ -49,9 +51,10 @@
             this.btnCreateProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(97)))), ((int)(((byte)(250)))));
             this.btnCreateProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateProduct.ForeColor = System.Drawing.Color.White;
-            this.btnCreateProduct.Location = new System.Drawing.Point(30, 16);
+            this.btnCreateProduct.Location = new System.Drawing.Point(40, 20);
+            this.btnCreateProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreateProduct.Name = "btnCreateProduct";
-            this.btnCreateProduct.Size = new System.Drawing.Size(172, 32);
+            this.btnCreateProduct.Size = new System.Drawing.Size(229, 39);
             this.btnCreateProduct.TabIndex = 3;
             this.btnCreateProduct.Text = "Create Product";
             this.btnCreateProduct.UseVisualStyleBackColor = false;
@@ -60,22 +63,22 @@
             // productsList
             // 
             this.productsList.AutoScroll = true;
-            this.productsList.Location = new System.Drawing.Point(30, 63);
-            this.productsList.Margin = new System.Windows.Forms.Padding(4);
+            this.productsList.Location = new System.Drawing.Point(40, 78);
+            this.productsList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.productsList.Name = "productsList";
-            this.productsList.Size = new System.Drawing.Size(847, 580);
+            this.productsList.Size = new System.Drawing.Size(1129, 714);
             this.productsList.TabIndex = 4;
             // 
             // ProductsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.productsList);
             this.Controls.Add(this.btnCreateProduct);
             this.Controls.Add(this.inputSearch);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ProductsControl";
-            this.Size = new System.Drawing.Size(908, 630);
+            this.Size = new System.Drawing.Size(1211, 775);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductsControl_Paint);
             this.ResumeLayout(false);
 

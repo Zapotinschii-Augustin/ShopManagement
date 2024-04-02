@@ -47,7 +47,7 @@ namespace ConsoleApp1.avgDB
 
                 foreach (string row in rows)
                 {
-                    if (updatedRow.Split(DELIM)[0] != row.Split(DELIM)[0])
+                    if (updatedRow.Split(DELIM)[0] != row.Split(DELIM)[0]) //id of row
                     {
                         newRows.Add(row);
                     }

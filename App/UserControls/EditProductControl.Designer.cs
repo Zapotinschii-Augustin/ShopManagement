@@ -44,20 +44,19 @@
             // 
             this.headerLabel.AutoSize = true;
             this.headerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerLabel.Location = new System.Drawing.Point(378, 114);
-            this.headerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.headerLabel.Location = new System.Drawing.Point(480, 109);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(143, 26);
+            this.headerLabel.Size = new System.Drawing.Size(181, 32);
             this.headerLabel.TabIndex = 19;
             this.headerLabel.Text = "Edit Product";
             // 
             // editProductBtn
             // 
             this.editProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editProductBtn.Location = new System.Drawing.Point(307, 464);
-            this.editProductBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.editProductBtn.Location = new System.Drawing.Point(385, 540);
+            this.editProductBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editProductBtn.Name = "editProductBtn";
-            this.editProductBtn.Size = new System.Drawing.Size(294, 54);
+            this.editProductBtn.Size = new System.Drawing.Size(392, 66);
             this.editProductBtn.TabIndex = 18;
             this.editProductBtn.Text = "Edit Product";
             this.editProductBtn.UseVisualStyleBackColor = true;
@@ -67,10 +66,9 @@
             // 
             this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.Location = new System.Drawing.Point(323, 384);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.categoryLabel.Location = new System.Drawing.Point(407, 442);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(65, 17);
+            this.categoryLabel.Size = new System.Drawing.Size(76, 20);
             this.categoryLabel.TabIndex = 17;
             this.categoryLabel.Text = "Category";
             // 
@@ -78,10 +76,9 @@
             // 
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(323, 315);
-            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.descriptionLabel.Location = new System.Drawing.Point(407, 357);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(79, 17);
+            this.descriptionLabel.Size = new System.Drawing.Size(95, 20);
             this.descriptionLabel.TabIndex = 16;
             this.descriptionLabel.Text = "Description";
             // 
@@ -89,10 +86,9 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(323, 161);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Location = new System.Drawing.Point(407, 167);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(45, 17);
+            this.nameLabel.Size = new System.Drawing.Size(53, 20);
             this.nameLabel.TabIndex = 15;
             this.nameLabel.Text = "Name";
             // 
@@ -100,60 +96,67 @@
             // 
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLabel.Location = new System.Drawing.Point(323, 237);
-            this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.priceLabel.Location = new System.Drawing.Point(407, 261);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(40, 17);
+            this.priceLabel.Size = new System.Drawing.Size(48, 20);
             this.priceLabel.TabIndex = 14;
             this.priceLabel.Text = "Price";
             // 
             // categoryField
             // 
+            this.categoryField.InputText = "";
             this.categoryField.inputWidth = 250;
-            this.categoryField.Location = new System.Drawing.Point(326, 403);
-            this.categoryField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.categoryField.Location = new System.Drawing.Point(411, 465);
+            this.categoryField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.categoryField.Name = "categoryField";
+            this.categoryField.OnKeyDownCallback = null;
             this.categoryField.Placeholder = "Product Category...";
             this.categoryField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.categoryField.Size = new System.Drawing.Size(250, 23);
+            this.categoryField.Size = new System.Drawing.Size(333, 33);
             this.categoryField.TabIndex = 13;
             // 
             // descriptionField
             // 
+            this.descriptionField.InputText = "";
             this.descriptionField.inputWidth = 250;
-            this.descriptionField.Location = new System.Drawing.Point(326, 334);
-            this.descriptionField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionField.Location = new System.Drawing.Point(411, 380);
+            this.descriptionField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.descriptionField.Name = "descriptionField";
+            this.descriptionField.OnKeyDownCallback = null;
             this.descriptionField.Placeholder = "Product Description...";
             this.descriptionField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.descriptionField.Size = new System.Drawing.Size(250, 23);
+            this.descriptionField.Size = new System.Drawing.Size(333, 33);
             this.descriptionField.TabIndex = 12;
             // 
             // priceField
             // 
+            this.priceField.InputText = "";
             this.priceField.inputWidth = 250;
-            this.priceField.Location = new System.Drawing.Point(326, 256);
-            this.priceField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.priceField.Location = new System.Drawing.Point(411, 284);
+            this.priceField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.priceField.Name = "priceField";
+            this.priceField.OnKeyDownCallback = null;
             this.priceField.Placeholder = "Product Price...";
             this.priceField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.priceField.Size = new System.Drawing.Size(250, 23);
+            this.priceField.Size = new System.Drawing.Size(333, 33);
             this.priceField.TabIndex = 11;
             // 
             // nameField
             // 
+            this.nameField.InputText = "";
             this.nameField.inputWidth = 250;
-            this.nameField.Location = new System.Drawing.Point(326, 180);
-            this.nameField.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nameField.Location = new System.Drawing.Point(411, 191);
+            this.nameField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameField.Name = "nameField";
+            this.nameField.OnKeyDownCallback = null;
             this.nameField.Placeholder = "Product Name...";
             this.nameField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.nameField.Size = new System.Drawing.Size(250, 23);
+            this.nameField.Size = new System.Drawing.Size(333, 33);
             this.nameField.TabIndex = 10;
             // 
             // EditProductControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.headerLabel);
             this.Controls.Add(this.editProductBtn);
@@ -165,8 +168,9 @@
             this.Controls.Add(this.descriptionField);
             this.Controls.Add(this.priceField);
             this.Controls.Add(this.nameField);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditProductControl";
-            this.Size = new System.Drawing.Size(908, 630);
+            this.Size = new System.Drawing.Size(1211, 775);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EditProductControl_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();

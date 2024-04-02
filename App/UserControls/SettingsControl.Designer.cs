@@ -38,9 +38,10 @@
             // 
             this.shopNameLabel.AutoSize = true;
             this.shopNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shopNameLabel.Location = new System.Drawing.Point(28, 27);
+            this.shopNameLabel.Location = new System.Drawing.Point(37, 33);
+            this.shopNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.shopNameLabel.Name = "shopNameLabel";
-            this.shopNameLabel.Size = new System.Drawing.Size(82, 16);
+            this.shopNameLabel.Size = new System.Drawing.Size(103, 20);
             this.shopNameLabel.TabIndex = 0;
             this.shopNameLabel.Text = "Shop name: ";
             // 
@@ -48,47 +49,50 @@
             // 
             this.currencyLabel.AutoSize = true;
             this.currencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currencyLabel.Location = new System.Drawing.Point(28, 68);
+            this.currencyLabel.Location = new System.Drawing.Point(37, 84);
+            this.currencyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.currencyLabel.Name = "currencyLabel";
-            this.currencyLabel.Size = new System.Drawing.Size(82, 16);
+            this.currencyLabel.Size = new System.Drawing.Size(87, 20);
             this.currencyLabel.TabIndex = 2;
-            this.currencyLabel.Text = "Shop name: ";
+            this.currencyLabel.Text = "Currency: ";
             // 
             // currencyInput
             // 
-            this.currencyInput.OnKeyDownCallback = null;
+            this.currencyInput.InputText = "";
             this.currencyInput.inputWidth = 250;
-            this.currencyInput.Location = new System.Drawing.Point(115, 68);
-            this.currencyInput.Margin = new System.Windows.Forms.Padding(2);
+            this.currencyInput.Location = new System.Drawing.Point(153, 84);
+            this.currencyInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.currencyInput.Name = "currencyInput";
+            this.currencyInput.OnKeyDownCallback = null;
             this.currencyInput.Placeholder = null;
             this.currencyInput.PlaceholderColor = System.Drawing.Color.Empty;
-            this.currencyInput.Size = new System.Drawing.Size(250, 23);
+            this.currencyInput.Size = new System.Drawing.Size(250, 27);
             this.currencyInput.TabIndex = 3;
             // 
             // shopNameInput
             // 
-            this.shopNameInput.OnKeyDownCallback = null;
+            this.shopNameInput.InputText = "";
             this.shopNameInput.inputWidth = 250;
-            this.shopNameInput.Location = new System.Drawing.Point(115, 27);
-            this.shopNameInput.Margin = new System.Windows.Forms.Padding(2);
+            this.shopNameInput.Location = new System.Drawing.Point(153, 33);
+            this.shopNameInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.shopNameInput.Name = "shopNameInput";
+            this.shopNameInput.OnKeyDownCallback = null;
             this.shopNameInput.Placeholder = null;
             this.shopNameInput.PlaceholderColor = System.Drawing.Color.Empty;
-            this.shopNameInput.Size = new System.Drawing.Size(250, 23);
+            this.shopNameInput.Size = new System.Drawing.Size(250, 27);
             this.shopNameInput.TabIndex = 1;
             // 
             // SettingsControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.currencyInput);
             this.Controls.Add(this.currencyLabel);
             this.Controls.Add(this.shopNameInput);
             this.Controls.Add(this.shopNameLabel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SettingsControl";
-            this.Size = new System.Drawing.Size(908, 630);
+            this.Size = new System.Drawing.Size(1211, 775);
             this.Load += new System.EventHandler(this.SettingsControl_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsControl_Paint);
             this.ResumeLayout(false);

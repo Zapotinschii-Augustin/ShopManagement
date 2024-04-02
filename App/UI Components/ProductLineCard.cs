@@ -15,7 +15,7 @@ namespace App.UI_Components
     public partial class ProductLineCard : UserControl
     {
         public MainForm MainForm { get; set; }
-        private ToolTip ToolTip1 = new ToolTip();
+        private readonly ToolTip ToolTip1 = new ToolTip();
         public Color _BackgroundColor { get; set; } = Colors.productCardLineBG;
         public string ProductName { get; set; }
         public string Price { get; set; }
@@ -69,14 +69,14 @@ namespace App.UI_Components
             acceptForm.ShowDialog();
             if(AcceptForm.Accepted)
             {
-                //Delete product
-                return;
+                MainForm.shop.RemoveProduct(MainForm.shop.Products[Int32.Parse(Index)]);
+                this.MainForm.ReRenderProductsList();
             }
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-                this.MainForm.changeEditProductControlIndex("0");
+                this.MainForm.changeEditProductControlIndex(this.Index);
                 this.MainForm.ElevateUserControl("editProduct");
         }
     }

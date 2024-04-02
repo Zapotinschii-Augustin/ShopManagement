@@ -3,6 +3,7 @@ using ConsoleApp1.Program_Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace App.UserControls
             inputSearch.Placeholder = "Search products";
             inputSearch.PlaceholderColor = ColorTranslator.FromHtml("#4F4B4A");
             inputSearch.inputWidth = 199;
+            inputSearch.OnKeyDownCallback = searchInputOnKeyDown;
         }
         private void ProductsControl_Paint(object sender, PaintEventArgs e)
         {
@@ -44,8 +46,9 @@ namespace App.UserControls
             this.MainForm.ElevateUserControl("createProject");
         }
 
-        private void RenderList()
+        public void RenderList()
         {
+            this.productsList.Controls.Clear();
             ProductLineCard columnsDescriptionCard = new ProductLineCard();
             columnsDescriptionCard.Location = new Point(0, 10);
             columnsDescriptionCard.ProductName = "NAME";
@@ -56,20 +59,28 @@ namespace App.UserControls
             columnsDescriptionCard.HideButtons = true;
             columnsDescriptionCard.RefreshSelf();
             this.productsList.Controls.Add(columnsDescriptionCard);
-            for (int product = 0; product < 20; product++)
+            for (int product = 0; product < MainForm.shop.Products.Count; product++)
             {
                 productCards.Add(new ProductLineCard());
                 productCards[product].MainForm = this.MainForm;
                 productCards[product].Location = new Point(0, (56 + 46 * product));
 
-                productCards[product].ProductName = "Name";
-                productCards[product].Description = "Description";
-                productCards[product].Price = "Price" + MainForm.shop.Currency;
-                productCards[product].Category = "Category";
+                productCards[product].ProductName = MainForm.shop.Products[product].Name;
+                productCards[product].Description = MainForm.shop.Products[product].Description;
+                productCards[product].Price = MainForm.shop.Products[product].Price + " " + MainForm.shop.Currency;
+                productCards[product].Category = MainForm.shop.Products[product].Category;
 
-                productCards[product].Index = "index";
+                productCards[product].Index = product.ToString();
                 productCards[product].RefreshSelf();
                 this.productsList.Controls.Add(productCards[product]);
+            }
+        }
+        private void searchInputOnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                MainForm.shop.searchProducts(inputSearch.InputText);
+                MainForm.ReRenderProductsList();
             }
         }
     }

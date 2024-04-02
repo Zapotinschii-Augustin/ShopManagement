@@ -40,8 +40,8 @@ namespace ConsoleApp1.Program_Logic
         public static EProductIsNotValid ProductIsNotValid(string name, string price, string category)
         {
             if (name == null || name.Trim() == "") return EProductIsNotValid.name; //"Name is undefined"
-            if (Convert.ToInt32(price) < 0) return EProductIsNotValid.price; //"Price must be greater than 0"
-            if (category == String.Empty) return EProductIsNotValid.category; //"Category not selected"
+            if (price == null || Convert.ToDouble(price) < 0) return EProductIsNotValid.price; //"Price must be greater than 0"
+            if (category == String.Empty || category == null) return EProductIsNotValid.category; //"Category not selected"
             return EProductIsNotValid.FALSE;
         }
     }
