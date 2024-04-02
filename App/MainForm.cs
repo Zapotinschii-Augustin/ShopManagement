@@ -31,6 +31,8 @@ namespace App
             InitializeComponent();
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
+            shopNameLabel.Text = shop.Name;
+
             productsControl.MainForm = this;
             createProjectControl.MainForm = this;
             editProductControl.MainForm = this;

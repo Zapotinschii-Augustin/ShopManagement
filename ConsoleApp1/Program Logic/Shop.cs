@@ -55,9 +55,13 @@ namespace ConsoleApp1.Program_Logic
             db.getProducts();
         }
 
-        public void searchProducts(string name)
+        public void searchProducts(string name, bool sort = false)
         {
             products = db.getProducts(name);
+            if(sort)
+            {
+                products = products.OrderBy(x => x.Name).ToList();
+            }
         }
 
         private int FindProductIndex(Product product) {
