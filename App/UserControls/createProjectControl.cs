@@ -34,22 +34,34 @@ namespace App.UserControls
         }
         private void showInvalidField(EProductIsNotValid invalidField)
         {
-            switch(invalidField)
+            MessageForm messageForm = new MessageForm();
+            switch (invalidField)
             {
                 case EProductIsNotValid.FALSE:
                     this.MainForm.ReRenderProductsList();
                     this.MainForm.ElevateUserControl("products");
+                    ClearFields();
                     return;
                 case EProductIsNotValid.name:
-
+                    messageForm.Message = "Name is invalid";
+                    messageForm.ShowDialog();
                     return;
                 case EProductIsNotValid.price:
-
+                    messageForm.Message = "Price is invalid";
+                    messageForm.ShowDialog();
                     return;
                 case EProductIsNotValid.category:
-
+                    messageForm.Message = "Category is invalid";
+                    messageForm.ShowDialog();
                     return;
             }
+        }
+        private void ClearFields()
+        {
+            nameField.InputText = null;
+            priceField.InputText = null;
+            descriptionField.InputText = null;
+            categoryField.InputText = null;
         }
     }
 }

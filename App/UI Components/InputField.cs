@@ -30,6 +30,11 @@ namespace App.UI_Components
             get { return inputText; }
             set { 
                 inputText = value;
+                if (value == null || value == String.Empty)
+                {
+                    Input.Text = placeholder;
+                    return;
+                }
                 Input.Text = value;
             }
         }
@@ -67,9 +72,9 @@ namespace App.UI_Components
 
         private void Input_KeyDown(object sender, KeyEventArgs e)
         {
-            InputText = Input.Text;
             if (OnKeyDownCallback != null)
             {
+                InputText = Input.Text;
                 OnKeyDownCallback(sender, e);
             }
         }
