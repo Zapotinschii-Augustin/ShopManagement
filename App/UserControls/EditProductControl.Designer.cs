@@ -38,6 +38,8 @@
             this.descriptionField = new App.UI_Components.InputField();
             this.priceField = new App.UI_Components.InputField();
             this.nameField = new App.UI_Components.InputField();
+            this.quantityLabel = new System.Windows.Forms.Label();
+            this.quantityField = new App.UI_Components.InputField();
             this.SuspendLayout();
             // 
             // headerLabel
@@ -53,7 +55,7 @@
             // editProductBtn
             // 
             this.editProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editProductBtn.Location = new System.Drawing.Point(385, 540);
+            this.editProductBtn.Location = new System.Drawing.Point(385, 595);
             this.editProductBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editProductBtn.Name = "editProductBtn";
             this.editProductBtn.Size = new System.Drawing.Size(392, 66);
@@ -112,7 +114,7 @@
             this.categoryField.OnKeyDownCallback = null;
             this.categoryField.Placeholder = "Product Category...";
             this.categoryField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.categoryField.Size = new System.Drawing.Size(333, 33);
+            this.categoryField.Size = new System.Drawing.Size(250, 27);
             this.categoryField.TabIndex = 13;
             // 
             // descriptionField
@@ -125,7 +127,7 @@
             this.descriptionField.OnKeyDownCallback = null;
             this.descriptionField.Placeholder = "Product Description...";
             this.descriptionField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.descriptionField.Size = new System.Drawing.Size(333, 33);
+            this.descriptionField.Size = new System.Drawing.Size(250, 27);
             this.descriptionField.TabIndex = 12;
             // 
             // priceField
@@ -138,7 +140,7 @@
             this.priceField.OnKeyDownCallback = null;
             this.priceField.Placeholder = "Product Price...";
             this.priceField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.priceField.Size = new System.Drawing.Size(333, 33);
+            this.priceField.Size = new System.Drawing.Size(250, 27);
             this.priceField.TabIndex = 11;
             // 
             // nameField
@@ -151,13 +153,38 @@
             this.nameField.OnKeyDownCallback = null;
             this.nameField.Placeholder = "Product Name...";
             this.nameField.PlaceholderColor = System.Drawing.Color.Empty;
-            this.nameField.Size = new System.Drawing.Size(333, 33);
+            this.nameField.Size = new System.Drawing.Size(250, 27);
             this.nameField.TabIndex = 10;
+            // 
+            // quantityLabel
+            // 
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityLabel.Location = new System.Drawing.Point(407, 517);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(71, 20);
+            this.quantityLabel.TabIndex = 21;
+            this.quantityLabel.Text = "Quantity";
+            // 
+            // quantityField
+            // 
+            this.quantityField.InputText = "";
+            this.quantityField.inputWidth = 250;
+            this.quantityField.Location = new System.Drawing.Point(411, 540);
+            this.quantityField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.quantityField.Name = "quantityField";
+            this.quantityField.OnKeyDownCallback = null;
+            this.quantityField.Placeholder = "Product Quantity..";
+            this.quantityField.PlaceholderColor = System.Drawing.Color.Empty;
+            this.quantityField.Size = new System.Drawing.Size(250, 27);
+            this.quantityField.TabIndex = 20;
             // 
             // EditProductControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.quantityLabel);
+            this.Controls.Add(this.quantityField);
             this.Controls.Add(this.headerLabel);
             this.Controls.Add(this.editProductBtn);
             this.Controls.Add(this.categoryLabel);
@@ -168,7 +195,7 @@
             this.Controls.Add(this.descriptionField);
             this.Controls.Add(this.priceField);
             this.Controls.Add(this.nameField);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditProductControl";
             this.Size = new System.Drawing.Size(1211, 775);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EditProductControl_Paint);
@@ -189,5 +216,7 @@
         private UI_Components.InputField descriptionField;
         private UI_Components.InputField priceField;
         private UI_Components.InputField nameField;
+        private System.Windows.Forms.Label quantityLabel;
+        private UI_Components.InputField quantityField;
     }
 }

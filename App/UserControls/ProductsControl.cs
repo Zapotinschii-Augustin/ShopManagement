@@ -51,12 +51,9 @@ namespace App.UserControls
             this.productsList.Controls.Clear();
             ProductLineCard columnsDescriptionCard = new ProductLineCard();
             columnsDescriptionCard.Location = new Point(0, 10);
-            columnsDescriptionCard.ProductName = "NAME";
-            columnsDescriptionCard.DescriptionLabelText = "SHOW";
-            columnsDescriptionCard.Price = "PRICE";
-            columnsDescriptionCard.Category = "CATEGORY";
             columnsDescriptionCard._BackgroundColor = Color.Gainsboro;
             columnsDescriptionCard.HideButtons = true;
+            columnsDescriptionCard.Index = "-1"; // -1 means use standart labels
             columnsDescriptionCard.RefreshSelf();
             this.productsList.Controls.Add(columnsDescriptionCard);
             for (int product = 0; product < MainForm.shop.Products.Count; product++)
@@ -64,11 +61,6 @@ namespace App.UserControls
                 productCards.Add(new ProductLineCard());
                 productCards[product].MainForm = this.MainForm;
                 productCards[product].Location = new Point(0, (56 + 46 * product));
-
-                productCards[product].ProductName = MainForm.shop.Products[product].Name;
-                productCards[product].Description = MainForm.shop.Products[product].Description;
-                productCards[product].Price = MainForm.shop.Products[product].Price + " " + MainForm.shop.Currency;
-                productCards[product].Category = MainForm.shop.Products[product].Category;
 
                 productCards[product].Index = product.ToString();
                 productCards[product].RefreshSelf();

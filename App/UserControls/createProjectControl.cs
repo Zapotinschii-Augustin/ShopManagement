@@ -29,7 +29,7 @@ namespace App.UserControls
 
         private void createProductBtn_Click(object sender, EventArgs e)
         {
-            EProductIsNotValid invalidField = MainForm.shop.AddProduct(nameField.InputText, priceField.InputText, descriptionField.InputText, categoryField.InputText);
+            EProductIsNotValid invalidField = MainForm.shop.AddProduct(nameField.InputText, priceField.InputText, descriptionField.InputText, categoryField.InputText, quantityField.InputText);
             showInvalidField(invalidField);
         }
         private void showInvalidField(EProductIsNotValid invalidField)

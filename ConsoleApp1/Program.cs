@@ -12,6 +12,7 @@ using System.IO;
 using CShop = ConsoleApp1.Program_Logic.Shop;
 using System.Xml.Linq;
 using ConsoleApp1.avgDB;
+using System.Security.Cryptography;
 
 namespace Shop
 {
@@ -23,19 +24,13 @@ namespace Shop
             //Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             CShop shop = new CShop("Profi");
             AvgDB db = new AvgDB("products");
-            db.Clear();
-
-            shop.AddProduct("Pepsi", "4", "2L", "drink");
-            shop.AddProduct("Bread", "5", "", "food");
-            shop.Products[0].Name = "Cola";
-            shop.ChangeProduct(shop.Products[0]);
 
             shop.searchProducts("");
 
-            Console.WriteLine(shop.Products[0].Name);
-            Console.WriteLine(shop.Products[0].Price);
-            Console.WriteLine(shop.Products[1].Name, shop.Products[1].Description);
-            Console.WriteLine(shop.Products[1].Price);
+            for(int product = 0; product < shop.Products.Count; product++)
+            {
+                Console.WriteLine($"Name: {shop.Products[product].Name}, Quantity: {shop.Products[product].Quantity}\n");
+            }
             Console.ReadKey();
         }
     }

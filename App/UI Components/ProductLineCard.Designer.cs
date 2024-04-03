@@ -35,6 +35,7 @@
             this.descriptionPanel = new System.Windows.Forms.Panel();
             this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.quantityLabel = new System.Windows.Forms.Label();
             this.descriptionPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,48 +43,53 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(32, 10);
+            this.nameLabel.Location = new System.Drawing.Point(43, 12);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(138, 16);
+            this.nameLabel.Size = new System.Drawing.Size(53, 20);
             this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Pizza Quatro Stargioni";
+            this.nameLabel.Text = "Name";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLabel.Location = new System.Drawing.Point(213, 10);
+            this.priceLabel.Location = new System.Drawing.Point(284, 12);
+            this.priceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(56, 16);
+            this.priceLabel.Size = new System.Drawing.Size(48, 20);
             this.priceLabel.TabIndex = 1;
-            this.priceLabel.Text = "1000000";
+            this.priceLabel.Text = "Price";
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(48, 10);
+            this.descriptionLabel.Location = new System.Drawing.Point(43, 13);
+            this.descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(38, 16);
+            this.descriptionLabel.Size = new System.Drawing.Size(50, 20);
             this.descriptionLabel.TabIndex = 2;
-            this.descriptionLabel.Text = "show";
+            this.descriptionLabel.Text = "Show";
             // 
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.Location = new System.Drawing.Point(489, 11);
+            this.categoryLabel.Location = new System.Drawing.Point(577, 15);
+            this.categoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(60, 16);
+            this.categoryLabel.Size = new System.Drawing.Size(76, 20);
             this.categoryLabel.TabIndex = 3;
-            this.categoryLabel.Text = "category";
+            this.categoryLabel.Text = "Category";
             // 
             // descriptionPanel
             // 
             this.descriptionPanel.Controls.Add(this.descriptionLabel);
-            this.descriptionPanel.Location = new System.Drawing.Point(299, 2);
+            this.descriptionPanel.Location = new System.Drawing.Point(399, 2);
+            this.descriptionPanel.Margin = new System.Windows.Forms.Padding(4);
             this.descriptionPanel.Name = "descriptionPanel";
-            this.descriptionPanel.Size = new System.Drawing.Size(165, 38);
+            this.descriptionPanel.Size = new System.Drawing.Size(143, 47);
             this.descriptionPanel.TabIndex = 4;
             // 
             // editBtn
@@ -93,9 +99,10 @@
             this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBtn.ForeColor = System.Drawing.Color.Black;
-            this.editBtn.Location = new System.Drawing.Point(657, 6);
+            this.editBtn.Location = new System.Drawing.Point(876, 7);
+            this.editBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(80, 30);
+            this.editBtn.Size = new System.Drawing.Size(107, 37);
             this.editBtn.TabIndex = 5;
             this.editBtn.Text = "edit";
             this.editBtn.UseVisualStyleBackColor = false;
@@ -108,26 +115,40 @@
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteBtn.Location = new System.Drawing.Point(745, 6);
+            this.deleteBtn.Location = new System.Drawing.Point(993, 7);
+            this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(80, 30);
+            this.deleteBtn.Size = new System.Drawing.Size(107, 37);
             this.deleteBtn.TabIndex = 6;
             this.deleteBtn.Text = "delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
+            // quantityLabel
+            // 
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityLabel.Location = new System.Drawing.Point(741, 15);
+            this.quantityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(71, 20);
+            this.quantityLabel.TabIndex = 7;
+            this.quantityLabel.Text = "Quantity";
+            // 
             // ProductLineCard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.descriptionPanel);
             this.Controls.Add(this.categoryLabel);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.nameLabel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProductLineCard";
-            this.Size = new System.Drawing.Size(847, 40);
+            this.Size = new System.Drawing.Size(1129, 49);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductLineCard_Paint);
             this.descriptionPanel.ResumeLayout(false);
             this.descriptionPanel.PerformLayout();
@@ -145,5 +166,6 @@
         private System.Windows.Forms.Panel descriptionPanel;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Label quantityLabel;
     }
 }

@@ -29,13 +29,13 @@ namespace ConsoleApp1.Program_Logic
         public string Name { get; set; }
         public string Currency { get; set; }
 
-        public EProductIsNotValid AddProduct(string name, string price, string description, string category)
+        public EProductIsNotValid AddProduct(string name, string price, string description, string category, string quantity)
         {
-            EProductIsNotValid productIsNotValid = Product.ProductIsNotValid(name, price, category);
+            EProductIsNotValid productIsNotValid = Product.ProductIsNotValid(name, price, category, quantity);
             if (productIsNotValid != EProductIsNotValid.FALSE)
                 return productIsNotValid;
             
-            Product productToAdd = new Product(name, price, description, category, AvgDB.getNextId(DBNAME));
+            Product productToAdd = new Product(name, price, description, category, quantity, AvgDB.getNextId(DBNAME));
 
             products.Add(productToAdd);
             db.addProduct(productToAdd);

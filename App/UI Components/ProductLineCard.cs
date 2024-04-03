@@ -17,11 +17,6 @@ namespace App.UI_Components
         public MainForm MainForm { get; set; }
         private readonly ToolTip ToolTip1 = new ToolTip();
         public Color _BackgroundColor { get; set; } = Colors.productCardLineBG;
-        public string ProductName { get; set; }
-        public string Price { get; set; }
-        public string Description { get; set; }
-        public string DescriptionLabelText { get; set; } = "Description";
-        public string Category { get; set; }
         public string Index { get; set; }
         public bool HideButtons { 
             set {
@@ -54,12 +49,17 @@ namespace App.UI_Components
         public void RefreshSelf()
         {
             this.BackColor = _BackgroundColor;
-            this.nameLabel.Text = ProductName;
-            this.priceLabel.Text = Price;
-            this.categoryLabel.Text = Category;
-            this.descriptionLabel.Text = DescriptionLabelText;
-            ToolTip1.SetToolTip(descriptionPanel, Description);
-            ToolTip1.SetToolTip(descriptionLabel, Description);
+            if(Index != null && Int32.Parse(Index) != -1)
+            {
+                this.nameLabel.Text = MainForm.shop.Products[Int32.Parse(Index)].Name;
+                this.priceLabel.Text = MainForm.shop.Products[Int32.Parse(Index)].Price;
+                this.categoryLabel.Text = MainForm.shop.Products[Int32.Parse(Index)].Category;
+                this.descriptionLabel.Text = "Description";
+                this.quantityLabel.Text = MainForm.shop.Products[Int32.Parse(Index)].Quantity;
+                ToolTip1.SetToolTip(descriptionPanel, MainForm.shop.Products[Int32.Parse(Index)].Description);
+                ToolTip1.SetToolTip(descriptionLabel, MainForm.shop.Products[Int32.Parse(Index)].Description);
+            }
+            
         }
 
         private void deleteBtn_Click(object sender, EventArgs e)

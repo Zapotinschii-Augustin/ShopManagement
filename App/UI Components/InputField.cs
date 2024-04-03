@@ -74,7 +74,10 @@ namespace App.UI_Components
         {
             if (OnKeyDownCallback != null)
             {
-                InputText = Input.Text;
+                if(e.KeyCode == Keys.Enter)
+                {
+                    inputText = Input.Text;
+                }
                 OnKeyDownCallback(sender, e);
             }
         }

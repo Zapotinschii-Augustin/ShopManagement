@@ -106,7 +106,7 @@ namespace ConsoleApp1.avgDB
     {
         public ProductsDB(string DBName) : base(DBName) { }
         
-        private List<string> DBColumns = new List<string>() {"ID", "Name", "Price", "Description", "Category"};
+        private List<string> DBColumns = new List<string>() {"ID", "Name", "Price", "Description", "Category", "Quantity"};
 
 
         public void addProduct(Product product)

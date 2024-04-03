@@ -31,6 +31,7 @@ namespace App.UserControls
                   priceField.InputText = MainForm.shop.Products[Int32.Parse(index)].Price;
                   descriptionField.InputText = MainForm.shop.Products[Int32.Parse(index)].Description;
                   categoryField.InputText = MainForm.shop.Products[Int32.Parse(index)].Category;
+                  quantityField.InputText = MainForm.shop.Products[Int32.Parse(index)].Quantity;
                 }
             }
         }
@@ -41,13 +42,14 @@ namespace App.UserControls
 
         private void editProductBtn_Click(object sender, EventArgs e)
         {
-            EProductIsNotValid invalidField = Product.ProductIsNotValid(nameField.InputText, priceField.InputText, categoryField.InputText);
+            EProductIsNotValid invalidField = Product.ProductIsNotValid(nameField.InputText, priceField.InputText, categoryField.InputText, quantityField.InputText);
             if(invalidField == EProductIsNotValid.FALSE)
             {
                 MainForm.shop.Products[Int32.Parse(index)].Name = nameField.InputText;
                 MainForm.shop.Products[Int32.Parse(index)].Price = priceField.InputText;
                 MainForm.shop.Products[Int32.Parse(index)].Description = descriptionField.InputText;
                 MainForm.shop.Products[Int32.Parse(index)].Category = categoryField.InputText;
+                MainForm.shop.Products[Int32.Parse(index)].Quantity = quantityField.InputText;
 
                 MainForm.shop.ChangeProduct(MainForm.shop.Products[Int32.Parse(Index)]);
             }
