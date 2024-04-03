@@ -79,9 +79,15 @@ namespace App.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                MainForm.shop.searchProducts(inputSearch.InputText);
+                MainForm.shop.searchProducts(inputSearch.InputText, sortByAlphabetChbx.Checked);
                 MainForm.ReRenderProductsList();
             }
+        }
+
+        private void sortByAlphabetChbx_CheckedChanged(object sender, EventArgs e)
+        {
+            MainForm.shop.searchProducts(inputSearch.InputText, sortByAlphabetChbx.Checked);
+            MainForm.ReRenderProductsList();
         }
     }
 }

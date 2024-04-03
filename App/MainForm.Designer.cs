@@ -40,6 +40,7 @@ namespace App
             this.productsControl = new App.UserControls.ProductsControl();
             this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.editProductControl = new App.UserControls.EditProductControl();
+            this.shopNameLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +109,8 @@ namespace App
             // 
             this.settingsControl.BackColor = System.Drawing.Color.Transparent;
             this.settingsControl.Location = new System.Drawing.Point(202, 58);
-            this.settingsControl.Margin = new System.Windows.Forms.Padding(2);
+            this.settingsControl.MainForm = null;
+            this.settingsControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.settingsControl.Name = "settingsControl";
             this.settingsControl.Size = new System.Drawing.Size(908, 630);
             this.settingsControl.TabIndex = 7;
@@ -116,6 +118,7 @@ namespace App
             // createProjectControl
             // 
             this.createProjectControl.Location = new System.Drawing.Point(202, 58);
+            this.createProjectControl.MainForm = null;
             this.createProjectControl.Margin = new System.Windows.Forms.Padding(2);
             this.createProjectControl.Name = "createProjectControl";
             this.createProjectControl.Size = new System.Drawing.Size(908, 630);
@@ -125,7 +128,7 @@ namespace App
             // 
             this.productsControl.Location = new System.Drawing.Point(202, 58);
             this.productsControl.MainForm = null;
-            this.productsControl.Margin = new System.Windows.Forms.Padding(2);
+            this.productsControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.productsControl.Name = "productsControl";
             this.productsControl.Size = new System.Drawing.Size(908, 630);
             this.productsControl.TabIndex = 5;
@@ -136,17 +139,29 @@ namespace App
             // 
             // editProductControl
             // 
-            this.editProductControl.Index = string.Empty;
+            this.editProductControl.Index = "";
             this.editProductControl.Location = new System.Drawing.Point(202, 58);
+            this.editProductControl.MainForm = null;
             this.editProductControl.Name = "editProductControl";
             this.editProductControl.Size = new System.Drawing.Size(908, 630);
             this.editProductControl.TabIndex = 8;
+            // 
+            // shopNameLabel
+            // 
+            this.shopNameLabel.AutoSize = true;
+            this.shopNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shopNameLabel.Location = new System.Drawing.Point(217, 17);
+            this.shopNameLabel.Name = "shopNameLabel";
+            this.shopNameLabel.Size = new System.Drawing.Size(121, 31);
+            this.shopNameLabel.TabIndex = 9;
+            this.shopNameLabel.Text = "Kaufland";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 687);
+            this.Controls.Add(this.shopNameLabel);
             this.Controls.Add(this.editProductControl);
             this.Controls.Add(this.settingsControl);
             this.Controls.Add(this.createProjectControl);
@@ -161,6 +176,7 @@ namespace App
             this.mainPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,6 +191,7 @@ namespace App
         private System.Windows.Forms.Button SettingsBtn;
         private System.Windows.Forms.Button ProductsBtn;
         private UserControls.EditProductControl editProductControl;
+        private System.Windows.Forms.Label shopNameLabel;
     }
 }
 
