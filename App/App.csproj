@@ -53,6 +53,12 @@
     <Compile Include="AcceptForm.Designer.cs">
       <DependentUpon>AcceptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuyProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyProductForm.Designer.cs">
+      <DependentUpon>BuyProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="Variables\Colors.cs" />
     <EmbeddedResource Include="AcceptForm.resx">
       <DependentUpon>AcceptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyProductForm.resx">
+      <DependentUpon>BuyProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

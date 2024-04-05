@@ -30,8 +30,8 @@
         {
             this.btnCreateProduct = new System.Windows.Forms.Button();
             this.sortByAlphabetChbx = new System.Windows.Forms.CheckBox();
-            this.productsList = new App.UI_Components.ProductsList();
             this.inputSearch = new App.UI_Components.InputField();
+            this.productsList = new App.UI_Components.ProductsList();
             this.SuspendLayout();
             // 
             // btnCreateProduct
@@ -55,19 +55,10 @@
             this.sortByAlphabetChbx.Location = new System.Drawing.Point(539, 28);
             this.sortByAlphabetChbx.Name = "sortByAlphabetChbx";
             this.sortByAlphabetChbx.Size = new System.Drawing.Size(134, 20);
-            this.sortByAlphabetChbx.TabIndex = 5;
+            this.sortByAlphabetChbx.TabIndex = 4;
             this.sortByAlphabetChbx.Text = "Sort By Alphabete";
             this.sortByAlphabetChbx.UseVisualStyleBackColor = true;
             this.sortByAlphabetChbx.CheckedChanged += new System.EventHandler(this.sortByAlphabetChbx_CheckedChanged);
-            // 
-            // productsList
-            // 
-            this.productsList.AutoScroll = true;
-            this.productsList.Location = new System.Drawing.Point(30, 63);
-            this.productsList.Margin = new System.Windows.Forms.Padding(4);
-            this.productsList.Name = "productsList";
-            this.productsList.Size = new System.Drawing.Size(847, 580);
-            this.productsList.TabIndex = 4;
             // 
             // inputSearch
             // 
@@ -82,6 +73,15 @@
             this.inputSearch.Size = new System.Drawing.Size(250, 23);
             this.inputSearch.TabIndex = 2;
             // 
+            // productsList
+            // 
+            this.productsList.AutoScroll = true;
+            this.productsList.Location = new System.Drawing.Point(30, 63);
+            this.productsList.Margin = new System.Windows.Forms.Padding(4);
+            this.productsList.Name = "productsList";
+            this.productsList.Size = new System.Drawing.Size(847, 580);
+            this.productsList.TabIndex = 5;
+            // 
             // ProductsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,7 +90,7 @@
             this.Controls.Add(this.productsList);
             this.Controls.Add(this.btnCreateProduct);
             this.Controls.Add(this.inputSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ProductsControl";
             this.Size = new System.Drawing.Size(908, 630);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductsControl_Paint);
@@ -102,7 +102,7 @@
         #endregion
         private UI_Components.InputField inputSearch;
         private System.Windows.Forms.Button btnCreateProduct;
-        private UI_Components.ProductsList productsList;
         private System.Windows.Forms.CheckBox sortByAlphabetChbx;
+        private UI_Components.ProductsList productsList;
     }
 }

@@ -17,7 +17,8 @@ namespace App
     enum EActiveControl
     {
         products = 0,
-        settings
+        settings,
+        buyProducts
     }
     //source control: mainPanel (mainPanel.ResetBindings())
     public partial class MainForm : Form
@@ -31,12 +32,15 @@ namespace App
             InitializeComponent();
             SettingsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             ProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
+            BuyProductsBtn.FlatAppearance.MouseOverBackColor = Colors.hoverBeta;
             shopNameLabel.Text = shop.Name;
 
             productsControl.MainForm = this;
             createProjectControl.MainForm = this;
             editProductControl.MainForm = this;
             settingsControl.MainForm = this;
+
+            productsControl.ManagementMode = true;
             productsControl.BringToFront();
             activeControl = EActiveControl.products;
             ResetBtns();
@@ -64,19 +68,24 @@ namespace App
         {
             ProductsBtn.BackColor = Color.Transparent;
             SettingsBtn.BackColor = Color.Transparent;
+            BuyProductsBtn.BackColor = Color.Transparent;
             switch(activeControl)
             {
                 case EActiveControl.products:
                     ProductsBtn.BackColor = Colors.activeBtn;
-                    return;
+                    break;
                 case EActiveControl.settings:
                     SettingsBtn.BackColor = Colors.activeBtn;
-                    return;
+                    break;
+                case EActiveControl.buyProducts:
+                    BuyProductsBtn.BackColor = Colors.activeBtn;
+                    break;
             }
         }
 
         private void ProductsBtn_Click(object sender, EventArgs e)
         {
+            productsControl.ManagementMode = true;
             ElevateUserControl("products");
             activeControl = EActiveControl.products;
             ResetBtns();
@@ -84,6 +93,7 @@ namespace App
 
         private void SettingsBtn_Click(object sender, EventArgs e)
         {
+            if (activeControl == EActiveControl.settings) return;
             ElevateUserControl("settings");
             activeControl = EActiveControl.settings;
             ResetBtns();
@@ -96,6 +106,15 @@ namespace App
         public void ReRenderProductsList()
         {
             productsControl.RenderList();
+        }
+
+        private void BuyProductsBtn_Click(object sender, EventArgs e)
+        {
+            if (activeControl == EActiveControl.buyProducts) return;
+            productsControl.ManagementMode = false;
+            ElevateUserControl("products");
+            activeControl = EActiveControl.buyProducts;
+            ResetBtns();
         }
     }
 }

@@ -25,6 +25,26 @@ namespace App.UserControls
                 RenderList();
             }        
         }
+        private bool managementMode;
+        public bool ManagementMode
+        {
+            get
+            {
+                return managementMode;
+            }
+            set
+            {
+                managementMode = value;
+                if(managementMode)
+                {
+                    btnCreateProduct.Show();
+                } else
+                {
+                    btnCreateProduct.Hide();
+                }
+                RenderList();
+            }
+        }
         public ProductsControl()
         {
             InitializeComponent();
@@ -49,18 +69,16 @@ namespace App.UserControls
         public void RenderList()
         {
             this.productsList.Controls.Clear();
-            ProductLineCard columnsDescriptionCard = new ProductLineCard();
-            columnsDescriptionCard.Location = new Point(0, 10);
-            columnsDescriptionCard._BackgroundColor = Color.Gainsboro;
-            columnsDescriptionCard.HideButtons = true;
-            columnsDescriptionCard.Index = "-1"; // -1 means use standart labels
-            columnsDescriptionCard.RefreshSelf();
-            this.productsList.Controls.Add(columnsDescriptionCard);
+            AddDescriptionColumn();
             for (int product = 0; product < MainForm.shop.Products.Count; product++)
             {
                 productCards.Add(new ProductLineCard());
                 productCards[product].MainForm = this.MainForm;
                 productCards[product].Location = new Point(0, (56 + 46 * product));
+
+                productCards[product].ShowButtons = (ManagementMode == true) 
+                    ? EActiveButtons.MANAGEMENT
+                    : EActiveButtons.CUSTOMERS;
 
                 productCards[product].Index = product.ToString();
                 productCards[product].RefreshSelf();
@@ -72,14 +90,24 @@ namespace App.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 MainForm.shop.searchProducts(inputSearch.InputText, sortByAlphabetChbx.Checked);
-                MainForm.ReRenderProductsList();
+                RenderList();
             }
         }
 
         private void sortByAlphabetChbx_CheckedChanged(object sender, EventArgs e)
         {
             MainForm.shop.searchProducts(inputSearch.InputText, sortByAlphabetChbx.Checked);
-            MainForm.ReRenderProductsList();
+            RenderList();
+        }
+        private void AddDescriptionColumn()
+        {
+            ProductLineCard columnsDescriptionCard = new ProductLineCard();
+            columnsDescriptionCard.Location = new Point(0, 10);
+            columnsDescriptionCard._BackgroundColor = Color.Gainsboro;
+            columnsDescriptionCard.ShowButtons = EActiveButtons.NONE;
+            columnsDescriptionCard.Index = "-1"; // -1 means use standart labels
+            columnsDescriptionCard.RefreshSelf();
+            this.productsList.Controls.Add(columnsDescriptionCard);
         }
     }
 }

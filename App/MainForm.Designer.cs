@@ -32,6 +32,7 @@ namespace App
         {
             this.components = new System.ComponentModel.Container();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.BuyProductsBtn = new System.Windows.Forms.Button();
             this.SettingsBtn = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Label();
             this.ProductsBtn = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace App
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(97)))), ((int)(((byte)(250)))));
+            this.mainPanel.Controls.Add(this.BuyProductsBtn);
             this.mainPanel.Controls.Add(this.SettingsBtn);
             this.mainPanel.Controls.Add(this.panelHeader);
             this.mainPanel.Controls.Add(this.ProductsBtn);
@@ -58,6 +60,24 @@ namespace App
             this.mainPanel.Size = new System.Drawing.Size(200, 687);
             this.mainPanel.TabIndex = 0;
             // 
+            // BuyProductsBtn
+            // 
+            this.BuyProductsBtn.BackColor = System.Drawing.Color.Transparent;
+            this.BuyProductsBtn.FlatAppearance.BorderSize = 0;
+            this.BuyProductsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.BuyProductsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuyProductsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuyProductsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BuyProductsBtn.Location = new System.Drawing.Point(0, 88);
+            this.BuyProductsBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.BuyProductsBtn.Name = "BuyProductsBtn";
+            this.BuyProductsBtn.Size = new System.Drawing.Size(200, 30);
+            this.BuyProductsBtn.TabIndex = 6;
+            this.BuyProductsBtn.Text = "&Buy Productts";
+            this.BuyProductsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuyProductsBtn.UseVisualStyleBackColor = false;
+            this.BuyProductsBtn.Click += new System.EventHandler(this.BuyProductsBtn_Click);
+            // 
             // SettingsBtn
             // 
             this.SettingsBtn.BackColor = System.Drawing.Color.Transparent;
@@ -66,12 +86,12 @@ namespace App
             this.SettingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SettingsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SettingsBtn.Location = new System.Drawing.Point(0, 88);
+            this.SettingsBtn.Location = new System.Drawing.Point(0, 118);
             this.SettingsBtn.Margin = new System.Windows.Forms.Padding(0);
             this.SettingsBtn.Name = "SettingsBtn";
             this.SettingsBtn.Size = new System.Drawing.Size(200, 30);
             this.SettingsBtn.TabIndex = 5;
-            this.SettingsBtn.Text = "Settings";
+            this.SettingsBtn.Text = "&Settings";
             this.SettingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SettingsBtn.UseVisualStyleBackColor = false;
             this.SettingsBtn.Click += new System.EventHandler(this.SettingsBtn_Click);
@@ -100,7 +120,7 @@ namespace App
             this.ProductsBtn.Name = "ProductsBtn";
             this.ProductsBtn.Size = new System.Drawing.Size(200, 30);
             this.ProductsBtn.TabIndex = 1;
-            this.ProductsBtn.Text = "Products";
+            this.ProductsBtn.Text = "&Manage Products";
             this.ProductsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ProductsBtn.UseVisualStyleBackColor = false;
             this.ProductsBtn.Click += new System.EventHandler(this.ProductsBtn_Click);
@@ -119,7 +139,7 @@ namespace App
             // 
             this.createProjectControl.Location = new System.Drawing.Point(202, 58);
             this.createProjectControl.MainForm = null;
-            this.createProjectControl.Margin = new System.Windows.Forms.Padding(2);
+            this.createProjectControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.createProjectControl.Name = "createProjectControl";
             this.createProjectControl.Size = new System.Drawing.Size(908, 630);
             this.createProjectControl.TabIndex = 6;
@@ -128,7 +148,8 @@ namespace App
             // 
             this.productsControl.Location = new System.Drawing.Point(202, 58);
             this.productsControl.MainForm = null;
-            this.productsControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productsControl.ManagementMode = false;
+            this.productsControl.Margin = new System.Windows.Forms.Padding(2);
             this.productsControl.Name = "productsControl";
             this.productsControl.Size = new System.Drawing.Size(908, 630);
             this.productsControl.TabIndex = 5;
@@ -192,6 +213,7 @@ namespace App
         private System.Windows.Forms.Button ProductsBtn;
         private UserControls.EditProductControl editProductControl;
         private System.Windows.Forms.Label shopNameLabel;
+        private System.Windows.Forms.Button BuyProductsBtn;
     }
 }
 
